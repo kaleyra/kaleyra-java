@@ -16,4 +16,8 @@ public class MessageRequest{
     public SMSMessageResponse checkSMSStatus(){return smsMessageResponse;}
     public SMSMessageResponse checkCredits(){ return smsMessageResponse;}
     public SMSMessageResponse checkCreditUsage(String fromDate,String toDate){ return smsMessageResponse;}
+    public SMSMessageResponse createTxtlyLink(){return smsMessageResponse;}
+    public SMSMessageResponse extractTxtlyReports(){return smsMessageResponse;}
+    public SMSMessageResponse pullIndividualTxtlyLogs(){return smsMessageResponse;}
+    public SMSMessageResponse deleteTxtlyLink(){return smsMessageResponse;}
 }
