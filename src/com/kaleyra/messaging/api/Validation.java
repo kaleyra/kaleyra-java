@@ -1,3 +1,8 @@
+/*
+ * -*- coding: utf-8 -*-
+ * Copyright 2019 Kaleyra. All Rights Reserved.
+ */
+
 package com.kaleyra.messaging.api;
 
 import static com.kaleyra.messaging.api.SMSMessageRequest.*;
