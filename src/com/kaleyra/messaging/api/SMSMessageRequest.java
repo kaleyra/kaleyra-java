@@ -3,7 +3,7 @@ package com.kaleyra.messaging.api;
 import static com.kaleyra.messaging.api.Konstants.*;
 
 public class SMSMessageRequest extends MessageRequest {
-    public static String message,url;
+    public static String message;
     public static long number;
     private static String groupID,dlrURL,custom,unicode,flash,port;
     public SMSMessageRequest(){

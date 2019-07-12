@@ -1,20 +1,17 @@
 package com.kaleyra.messaging.api;
 
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 import static com.kaleyra.messaging.api.Konstants.baseURL;
 
-public class MessageResponse {
+public class SMSGroupResponse {
     public static JSONObject json;
     StringBuilder sb = new StringBuilder();
-
-    public MessageResponse() {
-    }
-
-    public MessageResponse(String urlParameters) {
+    public SMSGroupResponse(String urlParameters){
         String url = baseURL + "?" + urlParameters;
         try {
             URL finalURL = new URL(url);
@@ -36,16 +33,14 @@ public class MessageResponse {
             e.printStackTrace();
         }
     }
-
     public void toJson() {
         System.out.println(json.toString());
     }
-
     public void getStatusMessage() {
         try {
             System.out.println("Status : " + json.get("status"));
         } catch (Exception e) {
-            System.out.println("No Status present");
+            System.out.println("No Status Message present");
         }
     }
 
@@ -54,6 +49,13 @@ public class MessageResponse {
             System.out.println("Message : " + json.get("message"));
         } catch (Exception e) {
             System.out.println("No Message present");
+        }
+    }
+    public void getData(){
+        try{
+            System.out.println("Data : "+json.get("data"));
+        }catch(Exception e){
+            System.out.println("No Data present");
         }
     }
 }
