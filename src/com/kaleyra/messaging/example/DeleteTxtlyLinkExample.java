@@ -1,6 +1,7 @@
 /*
  * -*- coding: utf-8 -*-
  * Copyright 2019 Kaleyra. All Rights Reserved.
+ * Author : Viram Jain
  */
 
 package com.kaleyra.messaging.example;
