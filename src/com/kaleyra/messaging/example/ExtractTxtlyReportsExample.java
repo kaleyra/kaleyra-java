@@ -1,15 +1,13 @@
 package com.kaleyra.messaging.example;
 
-import com.kaleyra.messaging.api.Konstants;
-import com.kaleyra.messaging.api.SMSMessageRequest;
-import com.kaleyra.messaging.api.SMSMessageResponse;
+import com.kaleyra.messaging.api.*;
 
 public class ExtractTxtlyReportsExample {
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("","");
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.extractTxtlyReports();
+        TxtlyRequest txtlyRequest = new TxtlyRequest("","");
+        TxtlyResponse txtlyResponse=txtlyRequest.extractTxtlyReports();
 
-        smsMessageResponse.toJson();
+        txtlyResponse.toJson();
     }
 }

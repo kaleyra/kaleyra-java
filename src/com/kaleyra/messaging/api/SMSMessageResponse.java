@@ -43,18 +43,5 @@ public class SMSMessageResponse extends MessageResponse{
             System.out.println("No Status present");
         }
     }
-    public void getToken(){
-        try {
-            System.out.println("Token : " + json.get("token"));
-        } catch (Exception e) {
-            System.out.println("No Token present");
-        }
-    }
-    public void getTxtly(){
-        try {
-            System.out.println("Txtly : " + json.get("txtly"));
-        } catch (Exception e) {
-            System.out.println("No Txtly present");
-        }
-    }
+
 }

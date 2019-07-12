@@ -1,15 +1,13 @@
 package com.kaleyra.messaging.example;
 
-import com.kaleyra.messaging.api.Konstants;
-import com.kaleyra.messaging.api.SMSMessageRequest;
-import com.kaleyra.messaging.api.SMSMessageResponse;
+import com.kaleyra.messaging.api.*;
 
 public class CreateTxtlyLinkExample {
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("","format","token","title","advanced","track","attach");
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.createTxtlyLink();
+        TxtlyRequest txtlyRequest = new TxtlyRequest("","format","token","title","advanced","track","attach");
+        TxtlyResponse txtlyResponse =txtlyRequest.createTxtlyLink();
 
-        smsMessageResponse.toJson();
+        txtlyResponse.toJson();
     }
 }
