@@ -1,10 +1,9 @@
 /*
- * -*- coding: utf-8 -*-
  * Copyright 2019 Kaleyra. All Rights Reserved.
  * Author : Viram Jain
  */
 
-package com.kaleyra.messaging.api;
+package com.kaleyra.messaging.api.utilities;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,7 +12,9 @@ import java.util.Properties;
 
 public final class Konstants {
     public static String senderID,apiKey,baseURL;
-    private static Properties p=new Properties();
+    private static Properties p = new Properties();
+
+    //Constructor to configure values
     public Konstants(){
         FileReader reader = null;
         try {
@@ -26,8 +27,8 @@ public final class Konstants {
         } catch (IOException e) {
 
         }
-        senderID = p.getProperty("senderID");
-        apiKey = p.getProperty("apiKey");
-        baseURL=p.getProperty("baseURL");
+        senderID  =  p.getProperty("senderID");
+        apiKey  =  p.getProperty("apiKey");
+        baseURL = p.getProperty("baseURL");
     }
 }

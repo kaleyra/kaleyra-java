@@ -1,21 +1,23 @@
 /*
- * -*- coding: utf-8 -*-
  * Copyright 2019 Kaleyra. All Rights Reserved.
  * Author : Viram Jain
  */
 
-package com.kaleyra.messaging.api;
+package com.kaleyra.messaging.api.utilities;
 
-import static com.kaleyra.messaging.api.SMSMessageRequest.*;
+import static com.kaleyra.messaging.api.sms.SMSMessageRequest.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+//Class to validate inputs given by user
+
 public class Validation {
 
-    public int validate(){ //Validation message and number
-        String numberAsString=Long.toString(number);
-        if(message.equals("")&&numberAsString.length()!=10){
+    //Validate number and message
+    public static int validate(){ //Validation message and number
+        String numberAsString = Long.toString(number);
+        if(message.equals("")&&numberAsString.length() != 10){
             System.out.println("Message cannot be null");
             System.out.println("Invalid Number");
             return 0;
@@ -24,15 +26,17 @@ public class Validation {
             System.out.println("Message cannot be null");
             return 0;
         }
-        else if(numberAsString.length()!=10||numberAsString.contains("[a-zA-Z]+")){
+        else if(numberAsString.length() != 10||numberAsString.contains("[a-zA-Z]+")){
             System.out.println("Invalid Number");
             return 0;
         }
         else
             return 1;
     }
-    public String validate(String dateAndTime,String dateFormat){  //Validation date and time
-        String pattern="yyyy-MM-dd hh:mm a",finalDate=null;
+
+    //Validate date and time
+    public static String validate(String dateAndTime,String dateFormat){  //Validation date and time
+        String pattern = "yyyy-MM-dd hh:mm a",finalDate = null;
         Date date;
         if(dateAndTime == null) {
             return null;
@@ -45,7 +49,7 @@ public class Validation {
 
         }
             try {
-                SimpleDateFormat sdf=new SimpleDateFormat(dateFormat);
+                SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
                 date = sdf.parse(dateAndTime);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
                 finalDate = simpleDateFormat.format(date);
@@ -64,14 +68,16 @@ public class Validation {
             }
         return finalDate;
     }
-    public String checkDate(String dateGiven,String dateFormat){  //Validate date
-        String pattern="yyyy-MM-dd",finalDate=null;
+
+    //Check date for checking credit usage
+    public static String checkDate(String dateGiven,String dateFormat){  //Validate date
+        String pattern = "yyyy-MM-dd",finalDate = null;
         Date date;
         if(dateGiven == null) {
             return null;
         }
         try {
-            SimpleDateFormat sdf=new SimpleDateFormat(dateFormat);
+            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
             date = sdf.parse(dateGiven);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             finalDate = simpleDateFormat.format(date);
