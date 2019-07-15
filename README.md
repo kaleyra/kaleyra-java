@@ -8,7 +8,7 @@ Kaleyra is a global communications solutions provider that offers an extensive r
 Our mission is to make customer communication between business and their customers uncomplicated by removing the technology barrier with our cutting edge communication platforms. 
 ## Getting Started
 ### Prerequisites
-- Java has to be installed on your system (Java 5 or higher)
+- Java has to be installed on your system (Java 8)
 - An IDE for working on the library ([Intellij](https://www.jetbrains.com/idea/download/#section=windows),[Eclipse](https://www.eclipse.org/downloads/) are recommended ones)
 
 ### Creating an account

@@ -1,6 +1,6 @@
 /*
  * Copyright 2019 Kaleyra. All Rights Reserved.
- * Author : Viram Jain
+ * Author :  Viram Jain
  */
 
 package com.kaleyra.messaging.api.utilities;
