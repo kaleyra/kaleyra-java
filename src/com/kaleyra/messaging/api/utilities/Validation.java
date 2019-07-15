@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //Class to validate inputs given by user
-
 public class Validation {
 
     //Validate number and message

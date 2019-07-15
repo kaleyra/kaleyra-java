@@ -12,8 +12,8 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 public class DeleteTxtlyLinkExample {
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("");
-        TxtlyResponse txtlyResponse = txtlyRequest.deleteTlxtlyLink();
+        TxtlyRequest txtlyRequest = new TxtlyRequest("id");
+        TxtlyResponse txtlyResponse = txtlyRequest.deleteTxtlyLink();
 
         System.out.println(txtlyResponse.toJson());
     }

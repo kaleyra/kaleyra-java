@@ -15,7 +15,7 @@ public class SendSMSExample {
     public static void main(String[] args) {
         new Konstants();
         //parameters except number and message can be null
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(1234567890L,"message",null,null,null,null,null);
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L,"message",null,null,null,null,null);
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
        if(validation.validate() == 1)

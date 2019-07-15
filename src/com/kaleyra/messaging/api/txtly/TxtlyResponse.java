@@ -7,12 +7,14 @@ package com.kaleyra.messaging.api.txtly;
 
 import org.json.JSONObject;
 
+//Class to return responses for txtly requests
 public class TxtlyResponse {
     private JSONObject json;
     private String statusMessage, shortURL, created, message, token, txtly, id, linkID, title, txtlyToken, longURL, advanced, linkType, callBack, metaValue, views, lastViewed, status;
     private int serial, now, page, limit, limitStart;
     private boolean next;
 
+    //Constructor
     public TxtlyResponse(JSONObject json) {
         this.json  =  json;
         try {

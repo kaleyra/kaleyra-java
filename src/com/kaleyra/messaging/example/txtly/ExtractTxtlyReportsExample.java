@@ -13,7 +13,7 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 public class ExtractTxtlyReportsExample {
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("","");
+        TxtlyRequest txtlyRequest = new TxtlyRequest("format","page");
         TxtlyResponse txtlyResponse = txtlyRequest.extractTxtlyReports();
 
         System.out.println(txtlyResponse.toJson());

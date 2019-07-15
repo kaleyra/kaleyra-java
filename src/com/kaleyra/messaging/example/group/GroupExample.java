@@ -14,16 +14,15 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 public class GroupExample {
     public static void main(String[] args) {
         new Konstants();
-        GroupRequest groupRequest = new GroupRequest("Group",null);
+        GroupRequest groupRequest = new GroupRequest("GroupName",null);
         GroupResponse groupResponse = groupRequest.createGroup();
         System.out.println(groupResponse.toJson());
-        groupRequest = new GroupRequest(9742052352L,"Group","Viram Jain","viramjain9742@gmail.com",null);
+        groupRequest = new GroupRequest(8040275555L,"GroupName","fullName","emailID",null);
         groupResponse  =  groupRequest.addContact();
         System.out.println(groupResponse.toJson());
-        groupRequest = new GroupRequest(8970736699L,"Group","Yashita Jain","ypj247@gmail.com",null);
-        groupResponse =  groupRequest.addContact();
+        groupRequest = new GroupRequest(8040275555L,"GroupName","fullName","emailID",null);        groupResponse =  groupRequest.addContact();
         System.out.println(groupResponse.toJson());
-        groupRequest = new GroupRequest("Group","Hello",null);
+        groupRequest = new GroupRequest("GroupName","Hello",null);
         groupResponse = groupRequest.sendGroupSMS();
         System.out.println(groupResponse.toJson());
         SMSMessageResponse[] smsMessageResponses = groupResponse.getSMSMessageResponses();

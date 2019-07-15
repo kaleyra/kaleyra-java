@@ -13,7 +13,7 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 public class CreateTxtlyLinkExample {
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("","format","token","title","advanced","track","attach");
+        TxtlyRequest txtlyRequest = new TxtlyRequest("url","format","token","title","advanced","track","attach");
         TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
 
         System.out.println(txtlyResponse.toJson());

@@ -14,7 +14,7 @@ public class SMSMessageResponse extends MessageResponse {
 
     }
 
-    //Constructor to initialize values
+    //Constructor
     public SMSMessageResponse(JSONObject json){
         this.json = json;
         try{

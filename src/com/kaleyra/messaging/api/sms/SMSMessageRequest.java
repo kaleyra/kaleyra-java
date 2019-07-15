@@ -32,17 +32,17 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to send SMS
     @Override
     public SMSMessageResponse sendSMS() {
-        StringBuilder urlParameters  =  new StringBuilder("method = sms&message = " + message + "&sender = " + senderID + "&to = " + number + "&api_key = " + apiKey);
+        StringBuilder urlParameters  =  new StringBuilder("method=sms&message=" + message + "&sender=" + senderID + "&to=" + number + "&api_key=" + apiKey);
         if(dlrURL != null)
-            urlParameters.append("&dlrURL = "+dlrURL);
+            urlParameters.append("&dlrURL="+dlrURL);
         if(custom != null)
-            urlParameters.append("&custom = "+custom);
+            urlParameters.append("&custom="+custom);
         if(unicode != null)
-            urlParameters.append("&unicode = "+unicode);
+            urlParameters.append("&unicode="+unicode);
         if(flash != null)
-            urlParameters.append("&flash = "+flash);
+            urlParameters.append("&flash="+flash);
         if(port != null)
-            urlParameters.append("&port = "+port);
+            urlParameters.append("&port="+port);
         Klient klient  = new Klient(urlParameters.toString());
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -52,17 +52,17 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to schedule SMS
     @Override
     public SMSMessageResponse scheduleSMS(String date) {
-        StringBuilder urlParameters  =  new StringBuilder("api_key = " + apiKey + "&method = sms&message = " + message + "&to = " + number + "&sender = " + senderID + "&time = " + date);
+        StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=sms&message=" + message + "&to=" + number + "&sender=" + senderID + "&time=" + date);
         if(dlrURL != null)
-            urlParameters.append("&dlrURL = "+dlrURL);
+            urlParameters.append("&dlrURL="+dlrURL);
         if(custom != null)
-            urlParameters.append("&custom = "+custom);
+            urlParameters.append("&custom="+custom);
         if(unicode != null)
-            urlParameters.append("&unicode = "+unicode);
+            urlParameters.append("&unicode="+unicode);
         if(flash != null)
-            urlParameters.append("&flash = "+flash);
+            urlParameters.append("&flash="+flash);
         if(port != null)
-            urlParameters.append("&port = "+port);
+            urlParameters.append("&port="+port);
         Klient klient  = new Klient(urlParameters.toString());
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -72,7 +72,7 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to modify scheduled SMS
     @Override
     public SMSMessageResponse modifySchedule(String date) {
-        String urlParameters  =  "api_key = " + apiKey + "&method = sms.schedule&groupid = " + groupID + "&time = " + date + "&task = modify";
+        String urlParameters  =  "api_key=" + apiKey + "&method=sms.schedule&groupid=" + groupID + "&time=" + date + "&task=modify";
         Klient klient  = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -82,7 +82,7 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to delete scheduled SMS
     @Override
     public SMSMessageResponse deleteSchedule (){
-        String urlParameters  =  "api_key = " + apiKey + "&method = sms.schedule&groupid = " + groupID + "&task = delete";
+        String urlParameters  =  "api_key=" + apiKey + "&method=sms.schedule&groupid=" + groupID + "&task=delete";
         Klient klient  = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -92,7 +92,7 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to check SMS status
     @Override
     public SMSMessageResponse checkSMSStatus(){
-        String urlParameters  =  "api_key = " + apiKey + "&method = sms.status&id = " + groupID + "&credits = 1";
+        String urlParameters  =  "api_key=" + apiKey + "&method=sms.status&id=" + groupID + "&credits=1";
         Klient klient  = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -102,7 +102,7 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to check number of credits left in account
     @Override
     public SMSMessageResponse checkCredits(){
-        String urlParameters  =  "api_key = " + apiKey +"&method = account.credits";
+        String urlParameters  =  "api_key=" + apiKey +"&method=account.credits";
         Klient klient  = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
@@ -112,7 +112,7 @@ public class SMSMessageRequest extends MessageRequest {
     //Function to check credit usage from specific date to specific date
     @Override
     public SMSMessageResponse checkCreditUsage(String fromDate,String toDate){
-        String urlParameters  =  "api_key = " + apiKey +"&method = sms.usagecredit&from = " + fromDate + "&to = " + toDate + "&format = json";
+        String urlParameters  =  "api_key=" + apiKey +"&method=sms.usagecredit&from=" + fromDate + "&to=" + toDate + "&format=json";
         Klient klient  = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);

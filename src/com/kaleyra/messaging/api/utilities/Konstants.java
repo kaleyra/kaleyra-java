@@ -10,11 +10,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+//Class containing all configured values accepted from file named "SMS.properties"
 public final class Konstants {
     public static String senderID,apiKey,baseURL;
     private static Properties p = new Properties();
 
-    //Constructor to configure values
+    //Constructor
     public Konstants(){
         FileReader reader = null;
         try {

@@ -33,7 +33,7 @@ public class GroupRequest {
 
     //Function to create group
     public GroupResponse createGroup(){
-        StringBuilder urlParameters = new StringBuilder("api_key = "+apiKey+"&method = groups.add&task = save&app = 1&data[name] = "+groupName);
+        StringBuilder urlParameters = new StringBuilder("api_key="+apiKey+"&method=groups.add&task=save&app=1&data[name]=" + groupName);
         if(format != null)
             urlParameters.append("&format=" + format);
         Klient klient = new Klient(urlParameters.toString());
@@ -44,7 +44,7 @@ public class GroupRequest {
 
     //Function to add contacts to a group
     public GroupResponse addContact(){
-        StringBuilder urlParameters = new StringBuilder("api_key = "+apiKey+"&method = groups.register&number = "+number+"&name = "+groupName+"&action = add&fullname = "+fullName+"&email = "+emailID);
+        StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups.register&number=" + number + "&name=" + groupName + "&action=add&fullname=" + fullName + "&email=" + emailID);
         if(format != null)
             urlParameters.append("&format=" + format);
         Klient klient = new Klient(urlParameters.toString());
@@ -55,7 +55,7 @@ public class GroupRequest {
 
     //Function to send SMS to the group
     public GroupResponse sendGroupSMS(){
-        StringBuilder urlParameters = new StringBuilder("api_key = "+apiKey+"&method = groups&name = "+groupName+"&sender = "+senderID+"&message = "+message);
+        StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups&name=" + groupName + "&sender=" + senderID + "&message=" + message);
         if(format != null)
             urlParameters.append("&format=" + format);
         Klient klient = new Klient(urlParameters.toString());

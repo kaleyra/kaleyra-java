@@ -15,7 +15,7 @@ public class ScheduleSMSExample {
     public static void main(String[] args) {
         new Konstants();
         //parameters except number and message can be null
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(1234567890L, "message", "dlrURL", "custom", "unicode", "flash", "port");
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L, "message", "dlrURL", "custom", "unicode", "flash", "port");
         Validation validation  =  new Validation();
         String date  =  validation.validate("dateAndTime", "dateFormat");
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();

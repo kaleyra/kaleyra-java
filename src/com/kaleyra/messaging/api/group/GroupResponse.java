@@ -9,10 +9,13 @@ import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//Class to return responses from Group Requests
 public class GroupResponse {
     private JSONObject json;
     private String status,message,code,groupID;
     private SMSMessageResponse[] smsMessageResponse = null;
+
+    //Constructor
     public GroupResponse(JSONObject json){
         this.json = json;
         try {

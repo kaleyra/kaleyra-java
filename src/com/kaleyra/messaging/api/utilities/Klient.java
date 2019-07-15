@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-//Class for URL connection and storing response in JSON Object
+//Class for URL connection and returning response(JSON Object)
 public class Klient {
     public static JSONObject json;
     StringBuilder sb   =   new StringBuilder();
