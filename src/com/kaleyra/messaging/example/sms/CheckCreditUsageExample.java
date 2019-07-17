@@ -10,8 +10,11 @@ import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 import com.kaleyra.messaging.api.utilities.Validation;
 
-//Example to check credit usage between 2 dates
 public class CheckCreditUsageExample {
+
+    /**
+     * Example to check credit usage from specific date to specific date
+     */
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();

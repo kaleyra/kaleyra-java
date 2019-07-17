@@ -10,8 +10,11 @@ import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 import com.kaleyra.messaging.api.utilities.Validation;
 
-//Example to schedule SMS
 public class ScheduleSMSExample {
+
+    /**
+     * Example to schedule an SMS
+     */
     public static void main(String[] args) {
         new Konstants();
         //parameters except number and message can be null
@@ -23,7 +26,7 @@ public class ScheduleSMSExample {
             System.out.println("Invalid date and/or time");
         else if (date.equals("Invalid"))
             System.out.println("Schedule date and time cannot be less than 5 minutes or more than 3 months from now");
-        else if(validation.validate() == 1)
+        else if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
             smsMessageResponse = smsMessageRequest.scheduleSMS(date);
 
         System.out.println(smsMessageResponse.toJson());

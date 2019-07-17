@@ -5,18 +5,19 @@
 
 package com.kaleyra.messaging.api.utilities;
 
-import static com.kaleyra.messaging.api.sms.SMSMessageRequest.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//Class to validate inputs given by user
 public class Validation {
 
-    //Validate number and message
-    public static int validate(){ //Validation message and number
+    /**
+     * Method to validate number and message
+     * @return 0 if invalid and 1 if valid
+     */
+    public static int validate(long number,String message){
         String numberAsString = Long.toString(number);
-        if(message.equals("")&&numberAsString.length() != 10){
+        if(message.equals("")&&numberAsString.length() != 12){
             System.out.println("Message cannot be null");
             System.out.println("Invalid Number");
             return 0;
@@ -25,7 +26,7 @@ public class Validation {
             System.out.println("Message cannot be null");
             return 0;
         }
-        else if(numberAsString.length() != 10||numberAsString.contains("[a-zA-Z]+")){
+        else if(numberAsString.length() != 12||numberAsString.contains("[a-zA-Z]+")){
             System.out.println("Invalid Number");
             return 0;
         }
@@ -33,8 +34,11 @@ public class Validation {
             return 1;
     }
 
-    //Validate date and time
-    public static String validate(String dateAndTime,String dateFormat){  //Validation date and time
+    /**
+     * Method to validate dateAndTime and format specified by the user
+     * @return null if dateAndTime is invalid else finalDate which is in the API required format
+     */
+    public static String validate(String dateAndTime,String dateFormat){
         String pattern = "yyyy-MM-dd hh:mm a",finalDate = null;
         Date date;
         if(dateAndTime == null) {
@@ -68,8 +72,11 @@ public class Validation {
         return finalDate;
     }
 
-    //Check date for checking credit usage
-    public static String checkDate(String dateGiven,String dateFormat){  //Validate date
+    /**
+     * Method to validate dateGiven and format specified by the user
+     * @return null if dateGiven is invalid else finalDate which is in the API required format
+     */
+    public static String checkDate(String dateGiven,String dateFormat){
         String pattern = "yyyy-MM-dd",finalDate = null;
         Date date;
         if(dateGiven == null) {

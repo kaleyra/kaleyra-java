@@ -10,15 +10,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class to test validation for date and time
+ */
 class ValidationTest {
     private Validation validation  =  new Validation();
     private String dateAndTime,format,date;
+
     @Test
     void validate0() {
-        dateAndTime  =  "12-07-2019 04:45 PM";
+        dateAndTime  =  "17-07-2019 04:45 PM";
         format  =  "dd-MM-yyyy hh:mm a";
         date  =  validation.validate(dateAndTime, format);
-        assertEquals("2019-07-12 04:45 PM", date);
+        assertEquals("2019-07-17 04:45 PM", date);
     }
     @Test
     void validate1(){

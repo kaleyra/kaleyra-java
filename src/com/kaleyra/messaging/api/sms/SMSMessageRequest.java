@@ -9,17 +9,25 @@ import com.kaleyra.messaging.api.utilities.Klient;
 import org.json.JSONObject;
 import static com.kaleyra.messaging.api.utilities.Konstants.*;
 
-//Class to handle all SMS Message Requests
+
 public class SMSMessageRequest extends MessageRequest {
-    public static String message;
-    public static long number;
-    private static String groupID,dlrURL,custom,unicode,flash,port;
+    private String message;
+    private long number;
+    private String groupID,dlrURL,custom,unicode,flash,port;
 
     public SMSMessageRequest(){}
-    public SMSMessageRequest(String groupID){ //for deleting and modifying scheduled SMS
+
+    /**
+     * Constructor to initialize values for deleting and modifying scheduled SMS
+     */
+    public SMSMessageRequest(String groupID){
         this.groupID = groupID;
     }
-    public SMSMessageRequest(long number,String message,String dlrURL,String custom,String unicode,String flash,String port) { //for sending SMS and scheduling SMS
+
+    /**
+     * Constructor to initialize values for sending SMS and scheduling SMS
+     */
+    public SMSMessageRequest(long number,String message,String dlrURL,String custom,String unicode,String flash,String port) {
         this.message = message;
         this.number = number;
         this.dlrURL = dlrURL;
@@ -29,7 +37,26 @@ public class SMSMessageRequest extends MessageRequest {
         this.port = port;
     }
 
-    //Function to send SMS
+    /**
+     * Method to return mobile number for validation
+     * @return long number
+     */
+    public long getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Method to return message for validation
+     * @return String message
+     */
+    public  String getMessage() {
+        return this.message;
+    }
+
+    /**
+     * This method enables you to send an SMS
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse sendSMS() {
         StringBuilder urlParameters  =  new StringBuilder("method=sms&message=" + message + "&sender=" + senderID + "&to=" + number + "&api_key=" + apiKey);
@@ -49,7 +76,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to schedule SMS
+    /**
+     * This method enables you to schedule an SMS to a single number anytime
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse scheduleSMS(String date) {
         StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=sms&message=" + message + "&to=" + number + "&sender=" + senderID + "&time=" + date);
@@ -69,7 +99,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to modify scheduled SMS
+    /**
+     * This method enables you to modify a scheduled SMS
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse modifySchedule(String date) {
         String urlParameters  =  "api_key=" + apiKey + "&method=sms.schedule&groupid=" + groupID + "&time=" + date + "&task=modify";
@@ -79,7 +112,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to delete scheduled SMS
+    /**
+     * This method enables you to delete a scheduled SMS
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse deleteSchedule (){
         String urlParameters  =  "api_key=" + apiKey + "&method=sms.schedule&groupid=" + groupID + "&task=delete";
@@ -89,7 +125,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to check SMS status
+    /**
+     * Through this method, user will be able to check the status of SMS sent using message ID
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse checkSMSStatus(){
         String urlParameters  =  "api_key=" + apiKey + "&method=sms.status&id=" + groupID + "&credits=1";
@@ -99,7 +138,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to check number of credits left in account
+    /**
+     * Through this method, user will be able to check the available credits in his/her account
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse checkCredits(){
         String urlParameters  =  "api_key=" + apiKey +"&method=account.credits";
@@ -109,7 +151,10 @@ public class SMSMessageRequest extends MessageRequest {
         return smsMessageResponse;
     }
 
-    //Function to check credit usage from specific date to specific date
+    /**
+     * Through this method, user will be able to check the credits usage in his/her account in a particular date range
+     * @return SMSMessageResponse object smsMessageResponse
+     */
     @Override
     public SMSMessageResponse checkCreditUsage(String fromDate,String toDate){
         String urlParameters  =  "api_key=" + apiKey +"&method=sms.usagecredit&from=" + fromDate + "&to=" + toDate + "&format=json";

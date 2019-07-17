@@ -5,17 +5,23 @@
 
 package com.kaleyra.messaging.example.txtly;
 
+import com.kaleyra.messaging.api.txtly.TxtlyReport;
 import com.kaleyra.messaging.api.txtly.TxtlyRequest;
-import com.kaleyra.messaging.api.txtly.TxtlyResponse;
 import com.kaleyra.messaging.api.utilities.Konstants;
 
-//Example to extract txtly reports
 public class ExtractTxtlyReportsExample {
+
+    /**
+     * Example to extract Txtly Reports
+     */
     public static void main(String[] args) {
         new Konstants();
         TxtlyRequest txtlyRequest = new TxtlyRequest("format","page");
-        TxtlyResponse txtlyResponse = txtlyRequest.extractTxtlyReports();
-
-        System.out.println(txtlyResponse.toJson());
+        TxtlyReport txtlyReport = txtlyRequest.extractTxtlyReports();
+        System.out.println(txtlyReport.toJson());
+        TxtlyReport.Txtlys[] txtlys = txtlyReport.getTxtlyResponses();
+        System.out.println(txtlys[0].getCreated());
+        TxtlyReport.Pagination pagination = txtlyReport.getPagination();
+        System.out.println(pagination.getLimit());
     }
 }

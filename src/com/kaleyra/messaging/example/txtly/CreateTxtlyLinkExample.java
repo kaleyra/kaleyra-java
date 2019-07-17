@@ -9,11 +9,14 @@ import com.kaleyra.messaging.api.txtly.TxtlyRequest;
 import com.kaleyra.messaging.api.txtly.TxtlyResponse;
 import com.kaleyra.messaging.api.utilities.Konstants;
 
-//Example to create txtly link
 public class CreateTxtlyLinkExample {
+
+    /**
+     * Example to create Txtly Link
+     */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("url","format","token","title","advanced","track","attach");
+        TxtlyRequest txtlyRequest = new TxtlyRequest("http://msg.mn/bKX6yf",null,null,null,null,null,null);
         TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
 
         System.out.println(txtlyResponse.toJson());

@@ -10,15 +10,18 @@ import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 import com.kaleyra.messaging.api.utilities.Validation;
 
-//Example to send SMS
 public class SendSMSExample {
+
+    /**
+     * Example to send SMS immediately
+     */
     public static void main(String[] args) {
         new Konstants();
         //parameters except number and message can be null
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L,"message",null,null,null,null,null);
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(919742052352L,"message",null,null,null,null,null);
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
-       if(validation.validate() == 1)
+       if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
          smsMessageResponse = smsMessageRequest.sendSMS();
 
         System.out.println(smsMessageResponse.toJson());

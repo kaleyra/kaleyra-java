@@ -24,7 +24,7 @@ Our mission is to make customer communication between business and their custome
 
 ### Getting the library on your system
 - Git clone or download the library package onto your system
-- To work on the library
+
 ### Configuring the library
 - Enter your approved sender ID and API Key in the file named SMS.properties 
 - You have successfully configured the library and you are now free to send messages across the globe.
@@ -58,7 +58,7 @@ The library contains functions to consume 14 different types of APIs provided by
  ```
  ### Schedule an SMS
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L, "message", "dlrURL", "custom", "unicode", "flash", "port");
+ SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L, "message", "dlrURL", "custom", "unicode", "flash", "port"); //Optional parameters are described in the documentation
  Validation validation  =  new Validation();
  String date  =  validation.validate("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();

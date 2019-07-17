@@ -10,38 +10,42 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import static com.kaleyra.messaging.api.utilities.Konstants.baseURL;
 
-//Class for URL connection and returning response(JSON Object)
 public class Klient {
     public static JSONObject json;
-    StringBuilder sb   =   new StringBuilder();
+    StringBuilder sb = new StringBuilder();
     String url;
 
-    //Constructor for appending url parameters to base URL
+    /**
+     * Constructor to append urlParameters to baseURL
+     */
     public Klient(String urlParameters) {
-        url   =   Konstants.baseURL + "?" + urlParameters;
+        url = baseURL + "?" + urlParameters;
     }
 
-    //URL connection and storing the response
+    /**
+     * This method executes the URL and stores the response in JSONObject json and returns json
+     * @return JSONObject json
+     */
     public JSONObject getResponse(){
         try {
-            URL finalURL   =   new URL(url);
+            URL finalURL = new URL(url);
             BufferedReader in  =  new BufferedReader(
                     new InputStreamReader(finalURL.openStream()));
-
             String inputLine;
-            while ((inputLine  =  in.readLine())  !=  null) {
+            while ((inputLine = in.readLine()) != null) {
                 sb.append(inputLine);
             }
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String str  =  sb.toString();
+        String str = sb.toString();
         try {
-            json  =  new org.json.JSONObject(str);
+            json = new JSONObject(str);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Json=null");
         }
         return json;
     }

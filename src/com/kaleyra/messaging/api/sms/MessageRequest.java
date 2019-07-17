@@ -5,7 +5,9 @@
 
 package com.kaleyra.messaging.api.sms;
 
-//Class inherited by SMSMessageRequest
+/**
+ * Super class of SMSMessageRequest
+ */
 public class MessageRequest{
     SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
     public SMSMessageResponse sendSMS(){

@@ -10,9 +10,13 @@ import com.kaleyra.messaging.api.txtly.TxtlyResponse;
 import com.kaleyra.messaging.api.utilities.Konstants;
 
 public class DeleteTxtlyLinkExample {
+
+    /**
+     * Example to delete Txtly Link
+     */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("id");
+        TxtlyRequest txtlyRequest = new TxtlyRequest(0);
         TxtlyResponse txtlyResponse = txtlyRequest.deleteTxtlyLink();
 
         System.out.println(txtlyResponse.toJson());

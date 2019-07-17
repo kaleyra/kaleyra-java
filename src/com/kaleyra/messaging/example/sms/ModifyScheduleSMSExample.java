@@ -10,8 +10,11 @@ import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 import com.kaleyra.messaging.api.utilities.Validation;
 
-//Example to modify scheduled SMS
 public class ModifyScheduleSMSExample {
+
+    /**
+     * Example to modify scheduled SMS (Only date and time can be modified)
+     */
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");

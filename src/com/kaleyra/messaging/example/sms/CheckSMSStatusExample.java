@@ -9,8 +9,11 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 
-//Example to check SMS status
 public class CheckSMSStatusExample {
+
+    /**
+     * Example to check SMS status
+     */
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");

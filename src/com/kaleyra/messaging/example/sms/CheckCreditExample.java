@@ -9,8 +9,11 @@ import com.kaleyra.messaging.api.utilities.Konstants;
 import com.kaleyra.messaging.api.sms.SMSMessageRequest;
 import com.kaleyra.messaging.api.sms.SMSMessageResponse;
 
-//Example to check credits
 public class CheckCreditExample {
+
+    /**
+     * Example to check credits remaining in user's account
+     */
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();
