@@ -43,6 +43,21 @@ public class GroupRequest {
     }
 
     /**
+     * Method to return number
+     * @return
+     */
+    public long getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Method to return message
+     */
+    public String getMessage() {
+        return this.message;
+    }
+
+    /**
      * This method enables you to create a group of contacts from your account
      * @return GroupResponse object groupResponse
      */

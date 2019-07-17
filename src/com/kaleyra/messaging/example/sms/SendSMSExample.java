@@ -14,10 +14,11 @@ public class SendSMSExample {
 
     /**
      * Example to send SMS immediately
+     * The number has to be 12 digits long including the ISD code
+     * Parameters except number and message are optional and can be null
      */
     public static void main(String[] args) {
         new Konstants();
-        //parameters except number and message can be null
         SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(919742052352L,"message",null,null,null,null,null);
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();

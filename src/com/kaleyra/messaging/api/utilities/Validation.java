@@ -12,6 +12,32 @@ import java.util.Date;
 public class Validation {
 
     /**
+     * Method to validate number
+     * @return 0 if invalid or 1 if valid
+     */
+    public static int validate(long number){
+        String numberAsString = Long.toString(number);
+        if(numberAsString.length() != 12||numberAsString.contains("[a-zA-Z]+")){
+            System.out.println("Invalid Number,Please enter a valid 12 digit number with ISD code");
+            return 0;
+        }
+        else
+            return 1;
+    }
+
+    /**
+     * Method to validate number and message
+     * @return 0 if invalid and 1 if valid
+     */
+    public static int validate(String message){
+        if(message.equals("")){
+            System.out.println("Message cannot be null");
+            return 0;
+        }
+        else
+            return 1;
+    }
+    /**
      * Method to validate number and message
      * @return 0 if invalid and 1 if valid
      */
@@ -19,7 +45,7 @@ public class Validation {
         String numberAsString = Long.toString(number);
         if(message.equals("")&&numberAsString.length() != 12){
             System.out.println("Message cannot be null");
-            System.out.println("Invalid Number");
+            System.out.println("Invalid Number,Please enter a valid 12 digit number with ISD code");
             return 0;
         }
         else if(message.equals("")){
@@ -27,7 +53,7 @@ public class Validation {
             return 0;
         }
         else if(numberAsString.length() != 12||numberAsString.contains("[a-zA-Z]+")){
-            System.out.println("Invalid Number");
+            System.out.println("Invalid Number,Please enter a valid 12 digit number with ISD code");
             return 0;
         }
         else

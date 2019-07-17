@@ -49,7 +49,7 @@ The library contains functions to consume 14 different types of APIs provided by
  ## Quickstart
  ### Send a SMS
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L,"message",null,null,null,null,null); //Optional parameters are described in the documentation
+ SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(918040275555L,"message",null,null,null,null,null); //Optional parameters are described in the documentation
  Validation validation = new Validation()      
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
  if(validation.validate() == 1)
@@ -58,7 +58,7 @@ The library contains functions to consume 14 different types of APIs provided by
  ```
  ### Schedule an SMS
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(8040275555L, "message", "dlrURL", "custom", "unicode", "flash", "port"); //Optional parameters are described in the documentation
+ SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(918040275555L, "message", "dlrURL", "custom", "unicode", "flash", "port"); //Optional parameters are described in the documentation
  Validation validation  =  new Validation();
  String date  =  validation.validate("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
