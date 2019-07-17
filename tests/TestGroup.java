@@ -35,7 +35,7 @@ class TestGroup {
         GroupRequest groupRequest = new GroupRequest("GroupName",null);
         GroupResponse groupResponse = groupRequest.createGroup();
         System.out.println(groupResponse.toJson());
-        groupRequest = new GroupRequest(8040275555L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
+        groupRequest = new GroupRequest(918040275555L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
         groupResponse = groupRequest.addContact();
         String message = groupResponse.getMessage();
         String status = groupResponse.getStatusMessage();
@@ -51,7 +51,7 @@ class TestGroup {
         new Konstants();
         GroupRequest groupRequest = new GroupRequest("GroupName",null);
         groupRequest.createGroup();
-        groupRequest = new GroupRequest(9742052352L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
+        groupRequest = new GroupRequest(919742052352L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
         groupRequest.addContact();
         groupRequest = new GroupRequest("GroupName","Hello",null);
         GroupResponse groupResponse = groupRequest.sendGroupSMS();

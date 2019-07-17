@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestSMS {
-    private long number = 9742052352L;
+    private long number = 919742052352L;
     private String message = "Hello_there";
     private String scheduleDate = "16-07-2019 07:00 PM",scheduleFormat = "dd-MM-yyyy hh:mm a";
     private String modifyDate = "16-07-2019 10:00 PM",modifyFormat = "dd-MM-yyyy hh:mm a";
