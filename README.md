@@ -1,4 +1,6 @@
-
+<p align="center">
+<img src=https://www.kaleyra.com/wp-content/uploads/2018/08/FB-profile-pic.png height="250" width="250">
+</p>
 
 # [Kaleyra](https://www.kaleyra.com/)
 Kaleyra is a global communications solutions provider that offers an extensive range of telecommunication services for banks, retail and e-commerce companies, and enterprises. Through a global platform, Kaleyra enables its customers to reach, engage and manage an integrated and multi-channel notification services such as messages, push notifications, emails, instant messaging and voice services. Our services help business connect and communicate with their customers increasing customer retention and satisfaction in an easy and effective manner.
