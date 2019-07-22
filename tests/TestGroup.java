@@ -19,9 +19,9 @@ class TestGroup {
     void testCreateGroup(){
         new Konstants();
         GroupRequest groupRequest = new GroupRequest("Group",null);
-        GroupResponse groupResponse = groupRequest.createGroup();
+        GroupResponse groupResponse = groupRequest.create();
         String message=groupResponse.getMessage();
-        String status=groupResponse.getStatusMessage();
+        String status=groupResponse.getStatus();
         assertEquals("Group added Successfully",message);
         assertEquals("OK",status);
     }
@@ -33,12 +33,12 @@ class TestGroup {
     void testAddContacts(){
         new Konstants();
         GroupRequest groupRequest = new GroupRequest("GroupName",null);
-        GroupResponse groupResponse = groupRequest.createGroup();
-        System.out.println(groupResponse.toJson());
+        GroupResponse groupResponse = groupRequest.create();
+        System.out.println(groupResponse.toJSON());
         groupRequest = new GroupRequest(918040275555L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
-        groupResponse = groupRequest.addContact();
+        groupResponse = groupRequest.add();
         String message = groupResponse.getMessage();
-        String status = groupResponse.getStatusMessage();
+        String status = groupResponse.getStatus();
         assertEquals("Number has been added Successfully",message);
         assertEquals("OK",status);
     }
@@ -50,13 +50,13 @@ class TestGroup {
     void testSendGroupSMS(){
         new Konstants();
         GroupRequest groupRequest = new GroupRequest("GroupName",null);
-        groupRequest.createGroup();
+        groupRequest.create();
         groupRequest = new GroupRequest(919742052352L,"GroupName","Viram Jain","viramjain9742@gmail.com",null);
-        groupRequest.addContact();
+        groupRequest.add();
         groupRequest = new GroupRequest("GroupName","Hello",null);
-        GroupResponse groupResponse = groupRequest.sendGroupSMS();
+        GroupResponse groupResponse = groupRequest.send();
         String message = groupResponse.getMessage();
-        String status = groupResponse.getStatusMessage();
+        String status = groupResponse.getStatus();
         assertEquals("Submitted successfully",message);
         assertEquals("OK",status);
     }

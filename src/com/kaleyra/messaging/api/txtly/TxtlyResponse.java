@@ -10,83 +10,68 @@ import org.json.JSONObject;
 public class TxtlyResponse {
     private JSONObject json;
     private String txtly,statusMessage,message,token;
-    private int id;
+    private Integer id;
 
     /**
      * Constructor for populating response object
      */
     public TxtlyResponse(JSONObject json) {
-        this.json = json;
-        try {
-            statusMessage = json.getString("status");
-        } catch (Exception e) {
-            statusMessage = null;
+        try{
+            this.json = json;
+        }catch (Exception e){
+            System.out.println("Response not received");
         }
-        try {
+        try{
+            statusMessage = json.getString("status");
+            if(statusMessage.equals(""))
+                statusMessage = null;
+        }catch (Exception e) {
+            statusMessage = "Status message not found";
+        }
+        try{
             message = json.getString("message");
-        } catch (Exception e) {
-            message = null;
+            if(message.equals(""))
+                message = null;
+        }catch (Exception e) {
+            message = "Message not found";
         }
         try {
             token = json.getString("token");
+            if(token.equals(""))
+                token = null;
         } catch (Exception e) {
-            token = null;
+            token = "Token not found";
         }
         try {
             id = json.getInt("id");
+            if(id.toString().equals(""))
+                id = null;
         } catch (Exception e) {
             id = 0;
         }
         try {
             txtly = json.getString("txtly");
+            if(txtly.equals(""))
+                txtly = null;
         } catch (Exception e) {
-            txtly = null;
+            txtly = "Txtly not found";
         }
     }
-
-    /**
-     * Method to return the complete API call response
-     * @return JSONObject json
-     */
-    public JSONObject toJson() {
+    public JSONObject toJSON() {
         return(this.json);
     }
-
-    /**
-     * Method to return "Status Message" from API call response
-     * @return String statusMessage
-     */
     public String getStatusMessage() {
         return this.statusMessage;
     }
-    /**
-     * Method to return "Message" from API call response
-     * @return String message
-     */
     public String getMessage() {
         return this.message;
     }
-
-    /**
-     * Method to return "Token" from API call response
-     * @return String token
-     */
     public String getToken() {
         return this.token;
     }
-
-    /**
-     * Method to return "ID" from API call response
-     * @return int id
-     */
     public int getID() {
         return this.id;
     }
-
-    /**
-     * Method to return "Txtly" from API call response
-     * @return String txtly
-     */
     public String getTxtly() {
         return this.txtly;
     }

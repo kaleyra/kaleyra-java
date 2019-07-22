@@ -56,7 +56,7 @@ The library contains functions to consume 14 different types of APIs provided by
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
  if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
     smsMessageResponse = smsMessageRequest.sendSMS();
- System.out.println(smsMessageResponse.toJson());
+ System.out.println(smsMessageResponse.toJSON());
  ```
  ### Schedule an SMS
  - Number,message and dateAndTime are mandatory parameters
@@ -72,7 +72,7 @@ The library contains functions to consume 14 different types of APIs provided by
      System.out.println("Schedule date and time cannot be less than 5 minutes or more than 3 months from now");
  else if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
      smsMessageResponse = smsMessageRequest.scheduleSMS(date);
- System.out.println(smsMessageResponse.toJson());
+ System.out.println(smsMessageResponse.toJSON());
  ```
  
  # Documentation

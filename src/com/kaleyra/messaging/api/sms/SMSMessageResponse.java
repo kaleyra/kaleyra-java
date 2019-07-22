@@ -7,10 +7,8 @@ package com.kaleyra.messaging.api.sms;
 
 import org.json.JSONObject;
 
-public class SMSMessageResponse extends MessageResponse {
-    private String id, customid, customID1, customID2, mobile, status;
-    JSONObject json;
-
+public class SMSMessageResponse extends KResponse {
+    private String dlrStatus,id, customID, customID1, customID2, mobile,credits;
     public SMSMessageResponse() {
 
     }
@@ -20,36 +18,61 @@ public class SMSMessageResponse extends MessageResponse {
      */
     public SMSMessageResponse(JSONObject json) {
         super(json);
-        this.json = json;
         try {
             id = json.getJSONArray("data").getJSONObject(0).getString("id");
+            if (id.equals(""))
+                id = null;
         } catch (Exception e) {
-            id = null;
+            id = "ID not found";
         }
         try {
-            customid = json.getJSONArray("data").getJSONObject(0).getString("customid");
+            customID = json.getJSONArray("data").getJSONObject(0).getString("customID");
+            if (customID.equals(""))
+                customID = null;
         } catch (Exception e) {
-            customid = null;
+            customID = "Custom ID not found";
         }
         try {
             customID1 = json.getJSONArray("data").getJSONObject(0).getString("customid1");
+            if (customID1.equals(""))
+                customID1 = null;
         } catch (Exception e) {
-            customID1 = null;
+            customID1 = "Custom ID 1 not found";
         }
         try {
             customID2 = json.getJSONArray("data").getJSONObject(0).getString("customid2");
+            if (customID2.equals(""))
+                customID2 = null;
         } catch (Exception e) {
-            customID2 = null;
+            customID2 = "Custom ID 2 not found";
         }
         try {
             mobile = json.getJSONArray("data").getJSONObject(0).getString("mobile");
+            if (mobile.equals(""))
+                mobile = null;
         } catch (Exception e) {
-            mobile = null;
+            mobile = "Mobile not found";
         }
         try {
-            status = json.getJSONArray("data").getJSONObject(0).getString("status");
+            dlrStatus = json.getJSONArray("data").getJSONObject(0).getString("status");
+            if (dlrStatus.equals(""))
+                dlrStatus = null;
         } catch (Exception e) {
-            status = null;
+            dlrStatus = "Status Message not found";
+        }
+        try {
+            statusCode = json.getString("code");
+            if (statusCode.equals(""))
+                statusCode = null;
+        } catch (Exception e) {
+            statusCode = "Status Code not found";
+        }
+        try {
+            credits = json.getJSONObject("data").getString("credits");
+            if (credits.equals(""))
+                credits = null;
+        } catch (Exception e) {
+            credits = "Credits not found";
         }
     }
 
@@ -58,73 +81,54 @@ public class SMSMessageResponse extends MessageResponse {
      */
     public SMSMessageResponse(JSONObject json,String arrayElement) {
         super(json);
-        this.json = json;
         try {
             id = json.getJSONObject(arrayElement).getString("id");
+            if(id.equals(""))
+                id = null;
         } catch (Exception e) {
-            id = null;
+            id = "ID not found";
         }
         try {
-            customid = json.getJSONObject(arrayElement).getString("customid");
+            customID = json.getJSONObject(arrayElement).getString("customID");
+            if(customID.equals(""))
+                customID = null;
         } catch (Exception e) {
-            customid = null;
+            customID = "Custom ID not found";
         }
         try {
             customID1 = json.getJSONObject(arrayElement).getString("customid1");
+            if(customID1.equals(""))
+                customID1 = null;
         } catch (Exception e) {
-            customID1 = null;
+            customID1 = "Custom ID 1 not found";
         }
         try {
             customID2 = json.getJSONObject(arrayElement).getString("customid2");
+            if(customID2.equals(""))
+                customID2 = null;
         } catch (Exception e) {
-            customID2 = null;
+            customID2 = "Custom ID 1 not found";
         }
         try {
             mobile = json.getJSONObject(arrayElement).getString("mobile");
+            if(mobile.equals(""))
+                mobile = null;
         } catch (Exception e) {
-            mobile = null;
+            mobile = "Mobile not found";
         }
         try {
-            status = json.getJSONObject(arrayElement).getString("status");
+            dlrStatus = json.getJSONObject(arrayElement).getString("status");
+            if(dlrStatus.equals(""))
+                dlrStatus = null;
         } catch (Exception e) {
-            status = null;
+            dlrStatus = "Status Message not found";
         }
     }
-
-
-    /**
-     * Method to return "ID" from API call response
-     * @return String id
-     */
     public String getID() { return this.id; }
-
-    /**
-     * Method to return "Custom ID" from API call response
-     * @return String customid
-     */
-    public String getCustomid() { return this.customid; }
-
-    /**
-     * Method to return "Custom ID 1" from API call response
-     * @return String customID1
-     */
+    public String getCustomid() { return this.customID; }
     public String getCustomid1() { return this.customID1; }
-
-    /**
-     * Method to return "Custom ID 2" from API call response
-     * @return String customID2
-     */
     public String getCustomid2() { return this.customID2;}
-
-    /**
-     * Method to return "Mobile" from API call response
-     * @return String mobile
-     */
     public String getMobile() { return this.mobile;}
-
-    /**
-     * Method to return "Status" from API call response
-     * @return String status
-     */
-    public String getStatus() { return this.status;}
+    public String getDlrStatus() { return this.dlrStatus; }
+    public String getCredits() { return this.credits; }
 }

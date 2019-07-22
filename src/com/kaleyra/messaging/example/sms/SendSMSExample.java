@@ -23,8 +23,8 @@ public class SendSMSExample {
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
        if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
-         smsMessageResponse = smsMessageRequest.sendSMS();
+         smsMessageResponse = smsMessageRequest.send();
 
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

@@ -45,7 +45,7 @@ public class Klient {
         try {
             json = new JSONObject(str);
         } catch (Exception e) {
-            System.out.println("Json=null");
+
         }
         return json;
     }

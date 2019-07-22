@@ -22,6 +22,6 @@ public class CheckCreditUsageExample {
         String fromDate = validation.checkDate("2019-06-12", "yyyy-MM-dd");
         String toDate = validation.checkDate("2019-07-09", "yyyy-MM-dd");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage(fromDate,toDate);
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

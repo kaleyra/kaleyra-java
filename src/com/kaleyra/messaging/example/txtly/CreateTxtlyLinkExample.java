@@ -16,9 +16,9 @@ public class CreateTxtlyLinkExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("http://msg.mn/bKX6yf",null,null,null,null,null,null);
+        TxtlyRequest txtlyRequest = new TxtlyRequest("",null,null,null,null,null,null);
         TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
 
-        System.out.println(txtlyResponse.toJson());
+        System.out.println(txtlyResponse.toJSON());
     }
 }

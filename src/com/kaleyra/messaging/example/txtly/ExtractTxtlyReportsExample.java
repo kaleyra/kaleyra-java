@@ -18,7 +18,7 @@ public class ExtractTxtlyReportsExample {
         new Konstants();
         TxtlyRequest txtlyRequest = new TxtlyRequest("format","page");
         TxtlyReport txtlyReport = txtlyRequest.extractTxtlyReports();
-        System.out.println(txtlyReport.toJson());
+        System.out.println(txtlyReport.toJSON());
         TxtlyReport.Txtlys[] txtlys = txtlyReport.getTxtlyResponses();
         System.out.println(txtlys[0].getCreated());
         TxtlyReport.Pagination pagination = txtlyReport.getPagination();

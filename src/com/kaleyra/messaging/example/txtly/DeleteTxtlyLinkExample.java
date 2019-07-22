@@ -19,6 +19,6 @@ public class DeleteTxtlyLinkExample {
         TxtlyRequest txtlyRequest = new TxtlyRequest(0);
         TxtlyResponse txtlyResponse = txtlyRequest.deleteTxtlyLink();
 
-        System.out.println(txtlyResponse.toJson());
+        System.out.println(txtlyResponse.toJSON());
     }
 }

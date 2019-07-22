@@ -18,6 +18,6 @@ public class CheckSMSStatusExample {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.checkSMSStatus();
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

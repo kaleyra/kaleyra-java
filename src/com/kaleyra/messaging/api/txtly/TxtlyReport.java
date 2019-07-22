@@ -18,16 +18,24 @@ public class TxtlyReport {
      * Constructor for populating response object
      */
     public TxtlyReport(JSONObject json){
-        this.json=json;
-        try {
-            statusMessage = json.getString("status");
-        } catch (Exception e) {
-            statusMessage = null;
+        try{
+            this.json = json;
+        }catch (Exception e){
+            System.out.println("Response not received");
         }
-        try {
-            message = json.getString("message");
+        try{
+            statusMessage = json.getString("status");
+            if(statusMessage.equals(""))
+                statusMessage = null;
         } catch (Exception e) {
-            message = null;
+            statusMessage = "Status message not found";
+        }
+        try{
+            message = json.getString("message");
+            if(message.equals(""))
+                message = null;
+        }catch (Exception e) {
+            message = "Message not found";
         }
         JSONArray jsonArray = null;
         int size = 0;
@@ -51,198 +59,157 @@ public class TxtlyReport {
 
     public class Txtlys{
         private String shortURL, created, linkID, title, txtlyToken, longURL, advanced, linkType, callBack, metaValue, views, lastViewed, status;
-        private int serial;
+        private Integer serial;
 
         /**
          * Constructor for populating array of txtly objects
          */
         public Txtlys(JSONArray jsonArray,int i){
             try {
-                linkID  =  jsonArray.getJSONObject(i).getString("link_id");
+                linkID = jsonArray.getJSONObject(i).getString("link_id");
+                if(linkID.equals(""))
+                    linkID = null;
             } catch (Exception e) {
-                linkID  =  null;
+                linkID = "Link ID not found";
             }
             try {
-                title  =  jsonArray.getJSONObject(i).getString("title");
+                title = jsonArray.getJSONObject(i).getString("title");
+                if(title.equals(""))
+                    title = null;
             } catch (Exception e) {
-                title  =  null;
+                title  = "Title not found";
             }
             try {
-                txtlyToken  =  jsonArray.getJSONObject(i).getString("token");
+                txtlyToken = jsonArray.getJSONObject(i).getString("token");
+                if(txtlyToken.equals(""))
+                    txtlyToken= null;
             } catch (Exception e) {
-                txtlyToken  =  null;
+                txtlyToken = "Txtly Token not found";
             }
             try {
-                longURL  =  jsonArray.getJSONObject(i).getString("long_url");
+                longURL = jsonArray.getJSONObject(i).getString("long_url");
+                if(longURL.equals(""))
+                    longURL = null;
             } catch (Exception e) {
-                longURL  =  null;
+                longURL = "Long URL not found";
             }
             try {
                 advanced  =  jsonArray.getJSONObject(i).getString("advanced");
+                if(advanced.equals(""))
+                    advanced = null;
             } catch (Exception e) {
-                advanced  =  null;
+                advanced = "Advanced not found";
             }
             try {
                 linkType  =  jsonArray.getJSONObject(i).getString("link_type");
+                if(linkType.equals(""))
+                    linkType = null;
             } catch (Exception e) {
-                linkType  =  null;
+                linkType = "Link Type not found";
             }
             try {
                 callBack  =  jsonArray.getJSONObject(i).getString("callback");
+                if(callBack.equals(""))
+                    callBack = null;
             } catch (Exception e) {
-                callBack  =  null;
+                callBack = "Call Back not found";
             }
             try {
                 metaValue  =  jsonArray.getJSONObject(i).getString("meta_value");
+                if(metaValue.equals(""))
+                    metaValue = null;
             } catch (Exception e) {
-                metaValue  =  null;
+                metaValue = "Meta Value not found";
             }
             try {
                 views  =  jsonArray.getJSONObject(i).getString("views");
+                if(views.equals(""))
+                    views = null;
             } catch (Exception e) {
-                views  =  null;
+                views = "Views not found";
             }
             try {
                 lastViewed  =  jsonArray.getJSONObject(i).getString("last_viewed");
+                if(lastViewed.equals(""))
+                    lastViewed = null;
             } catch (Exception e) {
-                lastViewed  =  null;
+                lastViewed = "Last Viewed not found";
             }
             try {
                 status  =  jsonArray.getJSONObject(i).getString("status");
+                if(status.equals(""))
+                    status = null;
             } catch (Exception e) {
-                status  =  null;
+                status = "Status not found";
             }
             try {
                 created  =  jsonArray.getJSONObject(i).getString("created");
+                if(created.equals(""))
+                    created = null;
             } catch (Exception e) {
-                created  =  null;
+                created  = "Created not found";
             }
             try {
                 serial  =  jsonArray.getJSONObject(i).getInt("serial");
+                if(serial.toString().equals(""))
+                    serial = null;
             } catch (Exception e) {
-                serial  =  0;
+                serial = 0;
             }
             try {
                 shortURL = jsonArray.getJSONObject(i).getString("short_url");
+                if(shortURL.equals(""))
+                    shortURL = null;
             } catch (Exception e) {
-                shortURL = null;
+                shortURL = "Short URL not found";
             }
         }
-        /**
-         * Method to return "Link ID" from API call response
-         * @return String linkID
-         */
         public String getLinkID() {
             return this.linkID;
         }
-
-        /**
-         * Method to return "Title" from API call response
-         * @return String title
-         */
         public String getTitle() {
             return this.title;
         }
-
-        /**
-         * Method to return "Txtly Token" from API call response
-         * @return String txtlyToken
-         */
         public String getTxtlyToken() {
             return this.txtlyToken;
         }
-
-        /**
-         * Method to return "Long URL" from API call response
-         * @return String longURL
-         */
         public String getLongURL() {
             return this.longURL;
         }
-
-        /**
-         * Method to return "Advanced" from API call response
-         * @return String advanced
-         */
         public String getAdvanced() {
             return this.advanced;
         }
-
-        /**
-         * Method to return "Link Type" from API call response
-         * @return String linkType
-         */
         public String getLinkType() {
             return this.linkType;
         }
-
-        /**
-         * Method to return "Call Back" from API call response
-         * @return String callBack
-         */
         public String getCallBack() {
             return this.callBack;
         }
-
-        /**
-         * Method to return "Meta Value" from API call response
-         * @return String metaValue
-         */
         public String getMetaValue() {
             return this.metaValue;
         }
-
-        /**
-         * Method to return "Views" from API call response
-         * @return String views
-         */
         public String getViews() {
             return this.views;
         }
-
-        /**
-         * Method to return "Last Viewed" from API call response
-         * @return String lastViewed
-         */
         public String getLastViewed() {
             return this.lastViewed;
         }
-
-        /**
-         * Method to return "Status" from API call response
-         * @return String status
-         */
         public String getTxtlyStatus() {
             return this.status;
         }
-
-        /**
-         * Method to return "Created" from API call response
-         * @return String created
-         */
         public String getCreated() {
             return this.created;
         }
-
-        /**
-         * Method to return "Serial" from API call response
-         * @return int serial
-         */
         public int getSerial() {
             return this.serial;
         }
-
-        /**
-         * Method to return "Short URL" from API call response
-         * @return String shortURL
-         */
         public String getShortURL() {
             return this.shortURL;
         }
     }
 
     public class Pagination{
-        private int now,page,limit,limitStart;
+        private Integer now,page,limit,limitStart;
         private boolean next;
 
         /**
@@ -251,6 +218,8 @@ public class TxtlyReport {
         public Pagination(JSONObject json){
             try {
                 now = json.getInt("now");
+                if(now.toString().equals(""))
+                    now = null;
             } catch (Exception e) {
                 now = 0;
             }
@@ -261,98 +230,54 @@ public class TxtlyReport {
             }
             try {
                 page = json.getInt("page");
+                if(page.toString().equals(""))
+                    page = null;
             } catch (Exception e) {
                 page = 0;
             }
             try {
                 limit = json.getInt("limit");
+                if(limit.toString().equals(""))
+                    limit = null;
             } catch (Exception e) {
                 limit = 0;
             }
             try {
                 limitStart = json.getInt("limitstart");
+                if(limitStart.toString().equals(""))
+                    limitStart = null;
             } catch (Exception e) {
                 limitStart = 0;
             }
         }
-
-        /**
-         * Method to return "Now" from API call response
-         * @return int now
-         */
         public int getNow() {
             return this.now;
         }
-
-        /**
-         * Method to return "Next" from API call response
-         * @return boolean next
-         */
         public boolean getNext() {
             return this.next;
         }
-
-        /**
-         * Method to return "Page" from API call response
-         * @return int page
-         */
         public int getPage() {
             return this.page;
         }
-
-        /**
-         * Method to return "Limit" from API call response
-         * @return int limit
-         */
         public int getLimit() {
             return this.limit;
         }
-
-        /**
-         * Method to return "Limit Start" from API call response
-         * @return int limitStart
-         */
         public int getLimitStart() {
             return this.limitStart;
         }
     }
-
-    /**
-     * Method to return the complete API call response
-     * @return JSONObject json
-     */
-    public JSONObject toJson() {
+    public JSONObject toJSON() {
         return this.json;
     }
-
-    /**
-     * Method to return all "Txtly" objects from API call response
-     * @return TxtlyResponse[] object txtlys
-     */
     public Txtlys[] getTxtlyResponses(){
         return this.txtlys;
     }
-
-    /**
-     * Method to return "Status Message" from API call response
-     * @return String statusMessage
-     */
     public String getStatusMessage() {
         return this.statusMessage;
     }
-
-    /**
-     * Method to return "Message" from API call response
-     * @return String message
-     */
     public String getMessage() {
         return this.message;
     }
-
-    /**
-     * Method to return pagination
-     * @return Pagination object pagination
-     */
     public Pagination getPagination() {
         return this.pagination;
     }

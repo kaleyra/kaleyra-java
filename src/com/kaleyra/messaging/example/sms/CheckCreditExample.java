@@ -18,6 +18,6 @@ public class CheckCreditExample {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();
         SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCredits();
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

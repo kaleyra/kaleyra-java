@@ -86,12 +86,12 @@ public class TxtlyRequest {
      * Through this method, you can pull out event logs for a particular Txtly URL
      * @return TxtlyResponse object txtlyResponse
      */
-    public TxtlyResponse pullIndividualTxtlyLogs(){
+    public TxtlyIndividualLogs pullIndividualTxtlyLogs(){
         String urlParameters = "api_key="+ apiKey + "&method=txtly.logs&id=" + id + "&app=1";
         Klient klient = new Klient(urlParameters);
         JSONObject json = klient.getResponse();
-        TxtlyResponse txtlyResponse = new TxtlyResponse(json);
-        return txtlyResponse;
+        TxtlyIndividualLogs txtlyIndividualLogs = new TxtlyIndividualLogs(json);
+        return txtlyIndividualLogs;
     }
 
     /**

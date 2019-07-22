@@ -18,6 +18,6 @@ public class DeleteScheduleSMSExample {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.deleteSchedule();
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

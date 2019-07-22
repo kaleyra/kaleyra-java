@@ -3,6 +3,7 @@
  * Author :  Viram Jain
  */
 
+import com.kaleyra.messaging.api.txtly.TxtlyIndividualLogs;
 import com.kaleyra.messaging.api.txtly.TxtlyReport;
 import com.kaleyra.messaging.api.txtly.TxtlyRequest;
 import com.kaleyra.messaging.api.txtly.TxtlyResponse;
@@ -49,9 +50,9 @@ class TestTxtly {
         TxtlyRequest txtlyRequest = new TxtlyRequest("http://msg.mn/bKX6yf", "json", null,null,null,null,null);
         TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
         txtlyRequest =  new TxtlyRequest(txtlyResponse.getID());
-        txtlyResponse = txtlyRequest.pullIndividualTxtlyLogs();
-        String message=txtlyResponse.getMessage();
-        String status=txtlyResponse.getStatusMessage();
+        TxtlyIndividualLogs txtlyIndividualLogs = txtlyRequest.pullIndividualTxtlyLogs();
+        String message = txtlyIndividualLogs.getMessage();
+        String status = txtlyIndividualLogs.getStatusMessage();
         assertEquals("OK",message);
         assertEquals("OK",status);
     }

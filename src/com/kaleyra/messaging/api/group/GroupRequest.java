@@ -5,14 +5,14 @@
 
 package com.kaleyra.messaging.api.group;
 
+import com.kaleyra.messaging.api.sms.KRequest;
 import com.kaleyra.messaging.api.utilities.Klient;
 import org.json.JSONObject;
 
 import static com.kaleyra.messaging.api.utilities.Konstants.*;
 
-public class GroupRequest {
-    private String groupName,format,fullName,emailID,message;
-    private long number;
+public class GroupRequest extends KRequest {
+    private String groupName,format,fullName,emailID;
 
     /**
      * Constructor to initialize values for creating group
@@ -61,7 +61,7 @@ public class GroupRequest {
      * This method enables you to create a group of contacts from your account
      * @return GroupResponse object groupResponse
      */
-    public GroupResponse createGroup(){
+    public GroupResponse create(){
         StringBuilder urlParameters = new StringBuilder("api_key="+apiKey+"&method=groups.add&task=save&app=1&data[name]=" + groupName);
         if(format != null)
             urlParameters.append("&format=" + format);
@@ -75,7 +75,7 @@ public class GroupRequest {
      *Through this method, you can add contacts to the SMS group you have created.
      * @return GroupResponse object groupResponse
      */
-    public GroupResponse addContact(){
+    public GroupResponse add(){
         StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups.register&number=" + number + "&name=" + groupName + "&action=add&fullname=" + fullName + "&email=" + emailID);
         if(format != null)
             urlParameters.append("&format=" + format);
@@ -89,7 +89,7 @@ public class GroupRequest {
      * Through this method, you'll be able to send an SMS to a group, anytime.
      * @return GroupResponse object groupResponse
      */
-    public GroupResponse sendGroupSMS(){
+    public GroupResponse send(){
         StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups&name=" + groupName + "&sender=" + senderID + "&message=" + message);
         if(format != null)
             urlParameters.append("&format=" + format);

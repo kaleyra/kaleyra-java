@@ -21,7 +21,7 @@ public class ScheduleSMSExample {
         new Konstants();
         SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(918040275555L, "message",null,null,null,null,null);
         Validation validation  =  new Validation();
-        String date  =  validation.validate("dateAndTime", "dateFormat");
+        String date = validation.validate("dateAndTime", "dateFormat");
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
         if (date.equals(null))
             System.out.println("Invalid date and/or time");
@@ -30,6 +30,6 @@ public class ScheduleSMSExample {
         else if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
             smsMessageResponse = smsMessageRequest.scheduleSMS(date);
 
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }

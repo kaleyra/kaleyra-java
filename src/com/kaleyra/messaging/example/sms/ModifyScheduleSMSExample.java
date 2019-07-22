@@ -28,6 +28,6 @@ public class ModifyScheduleSMSExample {
         else
             smsMessageResponse = smsMessageRequest.modifySchedule(date);
 
-        System.out.println(smsMessageResponse.toJson());
+        System.out.println(smsMessageResponse.toJSON());
     }
 }
