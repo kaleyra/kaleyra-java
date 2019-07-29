@@ -47,11 +47,11 @@ The library contains functions to consume 14 different types of APIs provided by
  - Send SMS to group
  
  ## Quickstart
- ### Send a SMS
+ ### Send an SMS
  - Number and message are mandatory parameters
- - Other parameters such as dlrURL,custom,unicode,flash and port are optional parameters and can be null
+ - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(918040275555L,"message",null,null,null,null,null);
+ SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
  Validation validation = new Validation()      
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
  if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
@@ -60,9 +60,9 @@ The library contains functions to consume 14 different types of APIs provided by
  ```
  ### Schedule an SMS
  - Number,message and dateAndTime are mandatory parameters
- - Other parameters such as dlrURL,custom,unicode,flash and port are optional parameters and can be null
+ - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(918040275555L,"message",null,null,null,null,null);
+ SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
  Validation validation = new Validation();
  String date = validation.validate("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
  SMSMessageResponse smsMessageResponse = new SMSMessageResponse();

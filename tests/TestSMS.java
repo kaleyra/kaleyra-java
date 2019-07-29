@@ -24,7 +24,7 @@ class TestSMS {
     void testSendSMS(){
         new Konstants();
         SMSMessageRequest smsMessageRequest=new SMSMessageRequest(number,message,null,null,null,null,null);
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.sendSMS();
+        SMSMessageResponse smsMessageResponse=smsMessageRequest.send();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign of 1 numbers Submitted successfully.",message);
         String status=smsMessageResponse.getStatus();
@@ -62,7 +62,7 @@ class TestSMS {
         smsMessageResponse = smsMessageRequest.modifySchedule(finalDate);
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign updated successfully",message);
-        String status=smsMessageResponse.getStatusMessage();
+        String status=smsMessageResponse.getStatus();
         assertEquals("OK",status);
     }
 
@@ -80,7 +80,7 @@ class TestSMS {
         smsMessageResponse = smsMessageRequest.deleteSchedule();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign canceled successfully and credits are refunded.",message);
-        String status=smsMessageResponse.getStatusMessage();
+        String status=smsMessageResponse.getStatus();
         assertEquals("OK",status);
     }
 
@@ -93,7 +93,7 @@ class TestSMS {
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();
         SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCredits();
         String message=smsMessageResponse.getMessage();
-        String status=smsMessageResponse.getStatusMessage();
+        String status=smsMessageResponse.getStatus();
         assertEquals("",message);
         assertEquals("OK",status);
     }
@@ -109,7 +109,7 @@ class TestSMS {
         String fromDay=validation.checkDate(fromDate,creditFormat);
         String toDay=validation.checkDate(toDate,creditFormat);
         SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage(fromDay,toDay);
-        String status=smsMessageResponse.getStatusMessage();
+        String status=smsMessageResponse.getStatus();
         assertEquals("OK",status);
     }
 
@@ -120,11 +120,11 @@ class TestSMS {
     void testCheckSMSStatus(){
         new Konstants();
         SMSMessageRequest smsMessageRequest=new SMSMessageRequest(number,message,null,null,null,null,null);
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.sendSMS();
+        SMSMessageResponse smsMessageResponse=smsMessageRequest.send();
         smsMessageRequest = new SMSMessageRequest(smsMessageResponse.getID());
         smsMessageResponse = smsMessageRequest.checkSMSStatus();
         String message=smsMessageResponse.getMessage();
-        String status=smsMessageResponse.getStatusMessage();
+        String status=smsMessageResponse.getStatus();
         assertEquals("Processed Successfully",message);
         assertEquals("OK",status);
     }
