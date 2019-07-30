@@ -5,10 +5,11 @@
 
 package com.kaleyra.messaging.api;
 
-import com.kaleyra.messaging.api.utilities.Validation;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import utilities.Validation;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.TestCase.assertEquals;
+
 
 /**
  * Class to test validation for date and time
@@ -29,7 +30,7 @@ class ValidationTest {
         dateAndTime = "12/05/2019 04:45 PM";
         format = "dd/MM/yyyy hh:mm a";
         date  =  validation.validate(dateAndTime, format);
-        assertNull(date);
+        assertEquals(date,null);
     }
     @Test
     void validate2(){
@@ -50,7 +51,7 @@ class ValidationTest {
         dateAndTime = "12 June,2019 14:13";
         format = "dd MMM,yyyy HH:mm";
         date = validation.validate(dateAndTime,format);
-        assertNull(date);
+        assertEquals(date,null);
     }
     @Test
     void validate5(){

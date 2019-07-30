@@ -3,13 +3,14 @@
  * Author :  Viram Jain
  */
 
-import com.kaleyra.messaging.api.txtly.TxtlyIndividualLogs;
-import com.kaleyra.messaging.api.txtly.TxtlyReport;
-import com.kaleyra.messaging.api.txtly.TxtlyRequest;
-import com.kaleyra.messaging.api.txtly.TxtlyResponse;
-import com.kaleyra.messaging.api.utilities.Konstants;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import api.txtly.TxtlyIndividualLogs;
+import api.txtly.TxtlyReport;
+import api.txtly.TxtlyRequest;
+import api.txtly.TxtlyResponse;
+import org.junit.Test;
+import utilities.Konstants;
+import static junit.framework.TestCase.assertEquals;
 
 class TestTxtly {
 

@@ -3,12 +3,14 @@
  * Author :  Viram Jain
  */
 
-import com.kaleyra.messaging.api.sms.SMSMessageRequest;
-import com.kaleyra.messaging.api.sms.SMSMessageResponse;
-import com.kaleyra.messaging.api.utilities.Konstants;
-import com.kaleyra.messaging.api.utilities.Validation;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import api.messaging.sms.SMSMessageRequest;
+import api.messaging.sms.SMSMessageResponse;
+
+import org.junit.Test;
+import utilities.Konstants;
+import utilities.Validation;
+
+import static junit.framework.TestCase.assertEquals;
 
 class TestSMS {
     private long number = 919742052352L;
@@ -27,7 +29,7 @@ class TestSMS {
         SMSMessageResponse smsMessageResponse=smsMessageRequest.send();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign of 1 numbers Submitted successfully.",message);
-        String status=smsMessageResponse.getStatus();
+        String status=smsMessageResponse.getDlrStatus();
         assertEquals("AWAITED-DLR",status);
     }
 
@@ -37,13 +39,12 @@ class TestSMS {
     @Test
     void testScheduleSMS(){
         new Konstants();
-        Validation validation=new Validation();
-        String finalDate=validation.validate(scheduleDate,scheduleFormat);
         SMSMessageRequest smsMessageRequest=new SMSMessageRequest(number,message,null,null,null,null,null);
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS(finalDate);
+        smsMessageRequest.setSchedule("31/07/2019 12:00","dd/MM/yyyy HH:mm");
+        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign of 1 numbers Scheduled successfully.",message);
-        String status=smsMessageResponse.getStatus();
+        String status=smsMessageResponse.getDlrStatus();
         assertEquals("AWAITED-DLR",status);
     }
 
@@ -51,15 +52,14 @@ class TestSMS {
      * Method to test modification of scheduled SMS
      */
     @Test
-    void testModifyScheduleSMS(){
+    void testEditScheduleSMS(){
         new Konstants();
-        Validation validation=new Validation();
-        String finalDate=validation.validate(scheduleDate,scheduleFormat);
         SMSMessageRequest smsMessageRequest=new SMSMessageRequest(number,message,null,null,null,null,null);
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS(finalDate);
+        smsMessageRequest.setSchedule("31/07/2019 12:00","dd/MM/yyyy HH:mm");
+        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS();
         smsMessageRequest = new SMSMessageRequest(smsMessageResponse.getID());
-        finalDate=validation.validate(modifyDate,modifyFormat);
-        smsMessageResponse = smsMessageRequest.modifySchedule(finalDate);
+        smsMessageRequest.setSchedule("01/08/2019 12:00","dd/MM/yyyy HH:mm");
+        smsMessageResponse = smsMessageRequest.editSchedule();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign updated successfully",message);
         String status=smsMessageResponse.getStatus();
@@ -75,7 +75,7 @@ class TestSMS {
         Validation validation=new Validation();
         String finalDate=validation.validate(scheduleDate,scheduleFormat);
         SMSMessageRequest smsMessageRequest=new SMSMessageRequest(number,message,null,null,null,null,null);
-        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS(finalDate);
+        SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS();
         smsMessageRequest = new SMSMessageRequest(smsMessageResponse.getID());
         smsMessageResponse = smsMessageRequest.deleteSchedule();
         String message=smsMessageResponse.getMessage();

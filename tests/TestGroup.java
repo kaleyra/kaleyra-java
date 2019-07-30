@@ -3,12 +3,13 @@
  * Author :  Viram Jain
  */
 
-import com.kaleyra.messaging.api.group.GroupRequest;
-import com.kaleyra.messaging.api.group.GroupResponse;
-import com.kaleyra.messaging.api.utilities.Konstants;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import api.messaging.group.GroupRequest;
+import api.messaging.group.GroupResponse;
+import org.junit.Test;
+import utilities.Konstants;
+
+import static junit.framework.TestCase.assertEquals;
 
 class TestGroup {
 
