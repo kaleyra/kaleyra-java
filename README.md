@@ -8,7 +8,7 @@ Kaleyra is a global communications solutions provider that offers an extensive r
 Our mission is to make customer communication between business and their customers uncomplicated by removing the technology barrier with our cutting edge communication platforms. 
 ## Getting Started
 ### Prerequisites
-- Java has to be installed on your system (Java 8)
+- Java has to be installed on your system (Java 8 or above)
 - An IDE for working on the library ([Intellij](https://www.jetbrains.com/idea/download/#section=windows),[Eclipse](https://www.eclipse.org/downloads/) are recommended ones)
 
 ### Creating an account
@@ -33,7 +33,7 @@ Our mission is to make customer communication between business and their custome
 The library contains functions to consume 14 different types of APIs provided by Kaleyra:
  - Send SMS
  - Schedule SMS
- - Modify Scheduled SMS
+ - Edit Scheduled SMS
  - Delete Scheduled SMS
  - Check SMS Status
  - Check Credits
@@ -52,29 +52,30 @@ The library contains functions to consume 14 different types of APIs provided by
  - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
  SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
- Validation validation = new Validation()      
- SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
- if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
-    smsMessageResponse = smsMessageRequest.sendSMS();
+ SMSMessageResponse smsMessageResponse = smsMessageRequest.sendSMS();
  System.out.println(smsMessageResponse.toJSON());
  ```
  ### Schedule an SMS
  - Number,message and dateAndTime are mandatory parameters
  - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
- Validation validation = new Validation();
- String date = validation.validate("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
- SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
- if (date.equals(null))
-     System.out.println("Invalid date and/or time");
- else if (date.equals("Invalid"))
-     System.out.println("Schedule date and time cannot be less than 5 minutes or more than 3 months from now");
- else if(validation.validate(smsMessageRequest.getNumber(),smsMessageRequest.getMessage()) == 1)
-     smsMessageResponse = smsMessageRequest.scheduleSMS(date);
+ SMSMessageRequest smsMessageRequest = new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);        
+ smsMessageRequest.setSchedule("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
+ SMSMessageResponse smsMessageResponse = smsMessageRequest.scheduleSMS(); 
  System.out.println(smsMessageResponse.toJSON());
  ```
- 
+ ### Create a Txtly Link
+ ```java
+  TxtlyRequest txtlyRequest = new TxtlyRequest("https://apidocs-sms.kaleyra.com",null,null,null,null,null,null);
+  TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
+  System.out.println(txtlyResponse.toJSON());
+ ```
+ ### Create a Group
+ ```java
+  GroupRequest groupRequest = new GroupRequest("GroupName",null);
+  GroupResponse groupResponse = groupRequest.create();
+  System.out.println(groupResponse.toJSON());
+ ```
  # Documentation
  The documentation for the Kaleyra API can be found [here](https://apidocs-sms.kaleyra.com/?version=latest).
 
