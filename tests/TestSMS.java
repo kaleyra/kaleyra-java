@@ -9,7 +9,6 @@ import api.messaging.sms.SMSMessageResponse;
 import org.junit.Test;
 import utilities.Konstants;
 import utilities.Validation;
-
 import static junit.framework.TestCase.assertEquals;
 
 class TestSMS {
