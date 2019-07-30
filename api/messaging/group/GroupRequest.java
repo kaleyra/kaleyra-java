@@ -80,9 +80,13 @@ public class GroupRequest extends KRequest {
         Validation validation = new Validation();
         GroupResponse groupResponse = new GroupResponse();
         if(validation.validate(number)==1) {
-            StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups.register&number=" + number + "&name=" + groupName + "&action=add&fullname=" + fullName + "&email=" + emailID);
+            StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups.register&number=" + number + "&name=" + groupName + "&action=add");
             if (format != null)
                 urlParameters.append("&format=" + format);
+            if(fullName != null)
+                urlParameters.append("&fullname=" + fullName);
+            if(emailID != null)
+                urlParameters.append("&email=" + emailID);
             Klient klient = new Klient(urlParameters.toString());
             JSONObject json = klient.getResponse();
             groupResponse = new GroupResponse(json);

@@ -9,6 +9,9 @@ import api.messaging.KRequest;
 import org.json.JSONObject;
 import utilities.Klient;
 import utilities.Validation;
+
+import static tests.messaging.sms.configTestSMS.*;
+import static tests.messaging.sms.configTestSMS.creditFormat;
 import static utilities.Konstants.*;
 
 
@@ -48,10 +51,11 @@ public class SMSMessageRequest extends KRequest {
         this.port = port;
     }
 
-    public void setSchedule(String dateAndTime,String dateFormat){
+    public void setSchedule(String dateAndTime, String dateFormat) {
         this.dateAndTime = dateAndTime;
         this.dateFormat = dateFormat;
     }
+
     /**
      * Method to return mobile number for validation
      *
@@ -107,14 +111,12 @@ public class SMSMessageRequest extends KRequest {
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
         String date = validation.validate(this.dateAndTime, this.dateFormat);
-        if(date.equals("Past")) {
+        if (date.equals("Past")) {
             System.out.println("Invalid Date and/or time");
             return smsMessageResponse;
-        }
-        else if(date.equals("Invalid")) {
+        } else if (date.equals("Invalid")) {
             System.out.println("Time difference should be greater than 5 minutes and less than 3 months from the current time");
-        }
-        else if(validation.validate(number,message)==1) {
+        } else if (validation.validate(number, message) == 1) {
             StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=sms&message=" + message + "&to=" + number + "&sender=" + senderID + "&time=" + date);
             if (dlrURL != null)
                 urlParameters.append("&dlrURL=" + dlrURL);
@@ -142,13 +144,11 @@ public class SMSMessageRequest extends KRequest {
         Validation validation = new Validation();
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
         String date = validation.validate(this.dateAndTime, this.dateFormat);
-        if(date.equals("Past")) {
+        if (date.equals("Past")) {
             System.out.println("Invalid Date and/or time");
-        }
-        else if(date.equals("Invalid")) {
+        } else if (date.equals("Invalid")) {
             System.out.println("Time difference should be greater than 5 minutes and less than 3 months from the current time");
-        }
-        else {
+        } else {
             String urlParameters = "api_key=" + apiKey + "&method=sms.schedule&groupid=" + groupID + "&time=" + date + "&task=modify";
             Klient klient = new Klient(urlParameters);
             JSONObject json = klient.getResponse();
@@ -201,12 +201,25 @@ public class SMSMessageRequest extends KRequest {
      *
      * @return SMSMessageResponse object smsMessageResponse
      */
-    public SMSMessageResponse checkCreditUsage(String fromDate, String toDate) {
-        String urlParameters = "api_key=" + apiKey + "&method=sms.usagecredit&from=" + fromDate + "&to=" + toDate + "&format=json";
-        Klient klient = new Klient(urlParameters);
-        JSONObject json = klient.getResponse();
-        SMSMessageResponse smsMessageResponse = new SMSMessageResponse(json);
-        return smsMessageResponse;
+    public SMSMessageResponse checkCreditUsage(String fromDate, String toDate,String dateFormat) {
+        String fromDay,toDay;
+        Validation validation = new Validation();
+        SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
+        if(fromDate == null || toDate == null){
+            return smsMessageResponse;
+        }
+        else {
+            fromDay = validation.checkDate(fromDate, dateFormat);
+            toDay = validation.checkDate(toDate, dateFormat);
+            if (fromDay.equals(null) || toDay.equals(null)) {
+                return smsMessageResponse;
+            } else {
+                String urlParameters = "api_key=" + apiKey + "&method=sms.usagecredit&from=" + fromDay + "&to=" + toDay + "&format=json";
+                Klient klient = new Klient(urlParameters);
+                JSONObject json = klient.getResponse();
+                smsMessageResponse = new SMSMessageResponse(json);
+            }
+        }return smsMessageResponse;
     }
 }
 
