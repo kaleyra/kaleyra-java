@@ -51,7 +51,7 @@ The library contains functions to consume 14 different types of APIs provided by
  - Number and message are mandatory parameters
  - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
- SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
+ SMSMessageRequest smsMessageRequest = new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);
  SMSMessageResponse smsMessageResponse = smsMessageRequest.sendSMS();
  System.out.println(smsMessageResponse.toJSON());
  ```
