@@ -60,17 +60,19 @@ The library contains functions to consume 14 different types of APIs provided by
  - Other parameters such as dlrURL, custom, unicode, flash and port are optional parameters which can be null
  ```java
  SMSMessageRequest smsMessageRequest = new SMSMessageRequest(91XXXXXXXXXXL,"message",null,null,null,null,null);        
- smsMessageRequest.setSchedule("15-7-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
+ smsMessageRequest.setSchedule("12-6-2019 12:45 PM", "dd-MM-yyyy hh:mm a");
  SMSMessageResponse smsMessageResponse = smsMessageRequest.scheduleSMS(); 
  System.out.println(smsMessageResponse.toJSON());
  ```
  ### Create a Txtly Link
+ - Parameters except url are optional which can be null
  ```java
-  TxtlyRequest txtlyRequest = new TxtlyRequest("https://apidocs-sms.kaleyra.com",null,null,null,null,null,null);
+  TxtlyRequest txtlyRequest = new TxtlyRequest("https://www.kaleyra.com/",null,null,null,null,null,null);
   TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
   System.out.println(txtlyResponse.toJSON());
  ```
  ### Create a Group
+ - GroupName is mandatory whereas format is optional parameter
  ```java
   GroupRequest groupRequest = new GroupRequest("GroupName",null);
   GroupResponse groupResponse = groupRequest.create();
