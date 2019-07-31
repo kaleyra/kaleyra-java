@@ -6,5 +6,5 @@
 package tests.txtly;
 
 public class configTestTxtly {
-    public static String url = "",format = "",page = "";
+    public static String url = "https://www.kaleyra.com/",format = "format",page = "page";
 }

@@ -16,7 +16,7 @@ public class DeleteScheduleSMSExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("");
+        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.deleteSchedule();
         System.out.println(smsMessageResponse.toJSON());
     }

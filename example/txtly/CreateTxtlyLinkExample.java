@@ -13,10 +13,11 @@ public class CreateTxtlyLinkExample {
 
     /**
      * Example to create Txtly Link
+     * Parameters except url are optional which can be null
      */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("",null,null,null,null,null,null);
+        TxtlyRequest txtlyRequest = new TxtlyRequest("https://www.kaleyra.com/",null,null,null,null,null,null);
         TxtlyResponse txtlyResponse = txtlyRequest.createTxtlyLink();
 
         System.out.println(txtlyResponse.toJSON());

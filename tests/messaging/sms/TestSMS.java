@@ -52,7 +52,7 @@ class TestSMS {
         smsMessageRequest.setSchedule(scheduleDate,scheduleFormat);
         SMSMessageResponse smsMessageResponse=smsMessageRequest.scheduleSMS();
         smsMessageRequest = new SMSMessageRequest(smsMessageResponse.getID());
-        smsMessageRequest.setSchedule(modifyDate,modifyFormat);
+        smsMessageRequest.setSchedule(modifyDate,modifyDateFormat);
         smsMessageResponse = smsMessageRequest.editSchedule();
         String message=smsMessageResponse.getMessage();
         assertEquals("Campaign updated successfully",message);

@@ -16,7 +16,7 @@ public class PullIndividualTxtlyLogsExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest =  new TxtlyRequest(0);
+        TxtlyRequest txtlyRequest =  new TxtlyRequest(0); //Enter your Txtly ID
         TxtlyIndividualLogs txtlyIndividualLogs = txtlyRequest.pullIndividualTxtlyLogs();
 
         System.out.println(txtlyIndividualLogs.toJSON());

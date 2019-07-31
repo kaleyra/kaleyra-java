@@ -16,8 +16,8 @@ public class EditScheduleSMSExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("");
-        smsMessageRequest.setSchedule("","");
+        SMSMessageRequest smsMessageRequest = new SMSMessageRequest("groupID");
+        smsMessageRequest.setSchedule("dateAndTime","dateFormat");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.editSchedule();
 
         System.out.println(smsMessageResponse.toJSON());

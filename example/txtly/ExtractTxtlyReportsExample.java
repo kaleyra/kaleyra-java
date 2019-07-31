@@ -16,7 +16,7 @@ public class ExtractTxtlyReportsExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest("","");
+        TxtlyRequest txtlyRequest = new TxtlyRequest("format","page");
         TxtlyReport txtlyReport = txtlyRequest.extractTxtlyReports();
         System.out.println(txtlyReport.toJSON());
         TxtlyReport.Txtlys[] txtlys = txtlyReport.getTxtlyResponses();

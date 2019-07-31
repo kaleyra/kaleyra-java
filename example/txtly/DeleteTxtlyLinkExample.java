@@ -16,7 +16,7 @@ public class DeleteTxtlyLinkExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        TxtlyRequest txtlyRequest = new TxtlyRequest(0);
+        TxtlyRequest txtlyRequest = new TxtlyRequest(0); //Enter your Txtly ID
         TxtlyResponse txtlyResponse = txtlyRequest.deleteTxtlyLink();
 
         System.out.println(txtlyResponse.toJSON());

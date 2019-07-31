@@ -17,7 +17,7 @@ public class CheckCreditUsageExample {
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();
-        SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage("","","");
+        SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage("fromDate","toDate","dateFormat");
         System.out.println(smsMessageResponse.toJSON());
     }
 }

@@ -14,12 +14,12 @@ public class ScheduleSMSExample {
     /**
      * Example to schedule an SMS
      * The number has to be 12 digits long including the ISD code succeeded by 'L'
-     * Parameters except number and message are optional can be null
+     * Parameters except number and message are optional which can be null
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91L, "",null,null,null,null,null);
-        smsMessageRequest.setSchedule("", "");
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(910000000000L, "message",null,null,null,null,null);
+        smsMessageRequest.setSchedule("dateAndTime", "dateFormat");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.scheduleSMS();
 
         System.out.println(smsMessageResponse.toJSON());

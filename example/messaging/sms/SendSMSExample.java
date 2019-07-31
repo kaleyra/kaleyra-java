@@ -18,7 +18,7 @@ public class SendSMSExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91L,"",null,null,null,null,null);
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(910000000000L,"message",null,null,null,null,null);
         SMSMessageResponse smsMessageResponse = smsMessageRequest.send();
 
         System.out.println(smsMessageResponse.toJSON());

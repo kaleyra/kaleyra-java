@@ -20,13 +20,13 @@ public class GroupExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        GroupRequest groupRequest = new GroupRequest("",null);
+        GroupRequest groupRequest = new GroupRequest("groupName",null);
         GroupResponse groupResponse = groupRequest.create();
         System.out.println(groupResponse.toJSON());
-        groupRequest = new GroupRequest(91L,"","","",null);
+        groupRequest = new GroupRequest(910000000000L,"groupName","fullName","emailID",null);
         groupResponse = groupRequest.add();
         System.out.println(groupResponse.toJSON());
-        groupRequest = new GroupRequest("","",null);
+        groupRequest = new GroupRequest("groupName","message",null);
         groupResponse = groupRequest.send();
         System.out.println(groupResponse.toJSON());
         SMSMessageResponse[] smsMessageResponses = groupResponse.getSMSMessageResponses();

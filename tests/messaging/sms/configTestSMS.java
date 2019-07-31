@@ -6,9 +6,9 @@
 package tests.messaging.sms;
 
 public class configTestSMS {
-    public static long number = 91L;
-    public static String message = "";
-    public static String scheduleDate = "",scheduleFormat = "";
-    public static String modifyDate = "",modifyFormat = "";
-    public static String fromDate = "",toDate = "",creditFormat = "";
+    public static long number = 910000000000L;
+    public static String message = "message";
+    public static String scheduleDate = "scheduleDate",scheduleFormat = "scheduleFormat";
+    public static String modifyDate = "modifyDate",modifyDateFormat = "modifyFormat";
+    public static String fromDate = "fromDate",toDate = "toDate",creditFormat = "creditFormat";
 }
