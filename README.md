@@ -1,5 +1,5 @@
 <p align="center">
-<img src=https://github.com/viram-jain/kaleyra-java/blob/master/maxresdefault.jpg >
+<img src=maxresdefault.jpg >
 </p>
 
 # [Kaleyra](https://www.kaleyra.com/)
