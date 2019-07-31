@@ -17,9 +17,6 @@ public class Klient {
     StringBuilder sb = new StringBuilder();
     String url;
 
-    public Klient(){
-
-    }
     /**
      * Constructor to append urlParameters to baseURL
      */

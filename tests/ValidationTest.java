@@ -20,17 +20,17 @@ class ValidationTest {
 
     @Test
     void validate0() {
-        dateAndTime  =  "17-07-2019 04:45 PM";
-        format  =  "dd-MM-yyyy hh:mm a";
-        date  =  validation.validate(dateAndTime, format);
-        assertEquals("2019-07-17 04:45 PM", date);
+        dateAndTime = "17-07-2019 04:45 PM";
+        format = "dd-MM-yyyy hh:mm a";
+        date = validation.validate(dateAndTime, format);
+        assertEquals("Past", date);
     }
     @Test
     void validate1(){
         dateAndTime = "12/05/2019 04:45 PM";
         format = "dd/MM/yyyy hh:mm a";
-        date  =  validation.validate(dateAndTime, format);
-        assertEquals(date,null);
+        date = validation.validate(dateAndTime, format);
+        assertEquals("Past", date);
     }
     @Test
     void validate2(){
@@ -51,7 +51,7 @@ class ValidationTest {
         dateAndTime = "12 June,2019 14:13";
         format = "dd MMM,yyyy HH:mm";
         date = validation.validate(dateAndTime,format);
-        assertEquals(date,null);
+        assertEquals("Past",date);
     }
     @Test
     void validate5(){

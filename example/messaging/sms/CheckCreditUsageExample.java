@@ -17,7 +17,7 @@ public class CheckCreditUsageExample {
     public static void main(String[] args) {
         new Konstants();
         SMSMessageRequest smsMessageRequest = new SMSMessageRequest();
-        SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage("10-06-2019","10-07-2019","dd-MM-yyyy");
+        SMSMessageResponse smsMessageResponse = smsMessageRequest.checkCreditUsage("","","");
         System.out.println(smsMessageResponse.toJSON());
     }
 }

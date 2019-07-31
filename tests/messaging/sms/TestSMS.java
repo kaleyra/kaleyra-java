@@ -8,7 +8,6 @@ package tests.messaging.sms;import api.messaging.sms.SMSMessageRequest;
 import api.messaging.sms.SMSMessageResponse;
 import org.junit.jupiter.api.Test;
 import utilities.Konstants;
-import utilities.Validation;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static tests.messaging.sms.configTestSMS.*;
 

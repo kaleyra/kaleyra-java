@@ -6,5 +6,5 @@
 package tests.txtly;
 
 public class configTestTxtly {
-    public static String url = "https://apidocs-sms.kaleyra.com",format = "json",page = "1";
+    public static String url = "",format = "",page = "";
 }

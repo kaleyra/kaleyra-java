@@ -18,8 +18,8 @@ public class ScheduleSMSExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91L, "message",null,null,null,null,null);
-        smsMessageRequest.setSchedule("dateAndTime", "dateFormat");
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(91L, "",null,null,null,null,null);
+        smsMessageRequest.setSchedule("", "");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.scheduleSMS();
 
         System.out.println(smsMessageResponse.toJSON());
