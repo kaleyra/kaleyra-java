@@ -1,5 +1,5 @@
 <p align="center">
-<img src=https://www.kaleyra.com/wp-content/uploads/2018/08/FB-profile-pic.png height="250" width="250">
+<img src=https://github.com/viram-jain/kaleyra-java/blob/master/maxresdefault.jpg >
 </p>
 
 # [Kaleyra](https://www.kaleyra.com/)
