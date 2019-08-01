@@ -9,6 +9,6 @@ package api.messaging;
  * Super class of SMSMessageRequest
  */
 public class KRequest {
-    public long number;
+    public String number;
     public String message;
 }

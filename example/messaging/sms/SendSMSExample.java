@@ -13,12 +13,12 @@ public class SendSMSExample {
 
     /**
      * Example to send SMS immediately
-     * The number has to be 12 digits long including the ISD code succeeded by 'L'
+     * The number has to be 12 digits long including the ISD code
      * Parameters except number and message are optional and can be null
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest(910000000000L,"message",null,null,null,null,null);
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest("919742052352","message",null,null,null,null,null);
         SMSMessageResponse smsMessageResponse = smsMessageRequest.send();
 
         System.out.println(smsMessageResponse.toJSON());

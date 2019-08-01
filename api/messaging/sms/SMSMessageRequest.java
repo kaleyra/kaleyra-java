@@ -9,9 +9,6 @@ import api.messaging.KRequest;
 import org.json.JSONObject;
 import utilities.Klient;
 import utilities.Validation;
-
-import static tests.messaging.sms.configTestSMS.*;
-import static tests.messaging.sms.configTestSMS.creditFormat;
 import static utilities.Konstants.*;
 
 
@@ -41,7 +38,7 @@ public class SMSMessageRequest extends KRequest {
     /**
      * Constructor to initialize values for sending SMS and scheduling SMS
      */
-    public SMSMessageRequest(long number, String message, String dlrURL, String custom, String unicode, String flash, String port) {
+    public SMSMessageRequest(String number, String message, String dlrURL, String custom, String unicode, String flash, String port) {
         this.message = message;
         this.number = number;
         this.dlrURL = dlrURL;
@@ -61,7 +58,7 @@ public class SMSMessageRequest extends KRequest {
      *
      * @return long number
      */
-    public long getNumber() {
+    public String getNumber() {
         return this.number;
     }
 
@@ -94,7 +91,7 @@ public class SMSMessageRequest extends KRequest {
         Klient klient;
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
         Validation validation = new Validation();
-        if (validation.validate(this.number, this.message) == 1) {
+        if (validation.validateNumberAndMessage(this.number, this.message) == 1) {
             klient = new Klient(urlParameters.toString());
             JSONObject json = klient.getResponse();
             smsMessageResponse = new SMSMessageResponse(json);
@@ -116,7 +113,7 @@ public class SMSMessageRequest extends KRequest {
             return smsMessageResponse;
         } else if (date.equals("Invalid")) {
             System.out.println("Time difference should be greater than 5 minutes and less than 3 months from the current time");
-        } else if (validation.validate(number, message) == 1) {
+        } else if (validation.validateNumberAndMessage(number, message) == 1) {
             StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=sms&message=" + message + "&to=" + number + "&sender=" + senderID + "&time=" + date);
             if (dlrURL != null)
                 urlParameters.append("&dlrURL=" + dlrURL);

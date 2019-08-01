@@ -35,7 +35,7 @@ public class GroupRequest extends KRequest {
     /**
      * Constructor to initialize values for adding contacts to the group
      */
-    public GroupRequest(long number, String groupName, String fullName, String emailID, String format){
+    public GroupRequest(String number, String groupName, String fullName, String emailID, String format){
         this.number = number;
         this.groupName = groupName;
         this.fullName = fullName;
@@ -47,7 +47,7 @@ public class GroupRequest extends KRequest {
      * Method to return number
      * @return
      */
-    public long getNumber() {
+    public String getNumber() {
         return this.number;
     }
 
@@ -79,7 +79,7 @@ public class GroupRequest extends KRequest {
     public GroupResponse add(){
         Validation validation = new Validation();
         GroupResponse groupResponse = new GroupResponse();
-        if(validation.validate(number)==1) {
+        if(validation.validateNumber(number)==1) {
             StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups.register&number=" + number + "&name=" + groupName + "&action=add");
             if (format != null)
                 urlParameters.append("&format=" + format);
@@ -101,7 +101,7 @@ public class GroupRequest extends KRequest {
     public GroupResponse send(){
         Validation validation = new Validation();
         GroupResponse groupResponse = new GroupResponse();
-        if(validation.validate(this.message)==1) {
+        if(validation.validateMessage(this.message)==1) {
             StringBuilder urlParameters = new StringBuilder("api_key=" + apiKey + "&method=groups&name=" + groupName + "&sender=" + senderID + "&message=" + message);
             if (format != null)
                 urlParameters.append("&format=" + format);
