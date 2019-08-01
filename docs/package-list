@@ -1,0 +1,11 @@
+api.messaging
+api.messaging.group
+api.messaging.sms
+api.txtly
+example.messaging.group
+example.messaging.sms
+example.txtly
+tests.messaging.group
+tests.messaging.sms
+tests.txtly
+utilities
