@@ -11,9 +11,9 @@ public class configTestGroup {
 
     //Values for creating group and adding contact
     public static String groupName2 = "groupName2";
-    public static String number1 = "910000000000";
+    public static String number1 = "91XXXXXXXXXX";
 
     //Values for creating group,adding contact and sending SMS
     public static String groupName3 = "groupName3",message = "message";
-    public static String number2 = "910000000000";
+    public static String number2 = "91XXXXXXXXXX";
 }

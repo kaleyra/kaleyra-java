@@ -91,7 +91,7 @@ public class SMSMessageRequest extends KRequest {
         Klient klient;
         SMSMessageResponse smsMessageResponse = new SMSMessageResponse();
         Validation validation = new Validation();
-        if (validation.validateNumberAndMessage(this.number, this.message) == 1) {
+        if (validation.validateNumberAndMessage(this.number,this.message) == 1) {
             klient = new Klient(urlParameters.toString());
             JSONObject json = klient.getResponse();
             smsMessageResponse = new SMSMessageResponse(json);

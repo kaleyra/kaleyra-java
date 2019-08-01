@@ -18,7 +18,7 @@ public class ScheduleSMSExample {
      */
     public static void main(String[] args) {
         new Konstants();
-        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest("910000000000L", "message",null,null,null,null,null);
+        SMSMessageRequest smsMessageRequest  =  new SMSMessageRequest("91XXXXXXXXXX", "message",null,null,null,null,null);
         smsMessageRequest.setSchedule("dateAndTime", "dateFormat");
         SMSMessageResponse smsMessageResponse = smsMessageRequest.scheduleSMS();
 

@@ -23,7 +23,7 @@ public class GroupExample {
         GroupRequest groupRequest = new GroupRequest("groupName",null);
         GroupResponse groupResponse = groupRequest.create();
         System.out.println(groupResponse.toJSON());
-        groupRequest = new GroupRequest("910000000000","groupName","fullName","emailID",null);
+        groupRequest = new GroupRequest("91XXXXXXXXXX","groupName","fullName","emailID",null);
         groupResponse = groupRequest.add();
         System.out.println(groupResponse.toJSON());
         groupRequest = new GroupRequest("groupName","message",null);
