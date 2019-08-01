@@ -1,5 +1,5 @@
 <p align="center">
-<img src=maxresdefault.jpg >
+<img src=https://media.licdn.com/dms/image/C4E1BAQEhWsmiOrN0jA/company-background_10000/0?e=2159024400&v=beta&t=e-l5A60dSZUlQxmOUUnjJFTA8FyBQzPME_2tK0avqm8>
 </p>
 
 # [Kaleyra](https://www.kaleyra.com/)
