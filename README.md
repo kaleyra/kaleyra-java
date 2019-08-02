@@ -3,7 +3,7 @@
 </p>
 
 # [Kaleyra](https://www.kaleyra.com/)
-Kaleyra is a global communications solutions provider that offers an extensive range of telecommunication services for banks, retail and e-commerce companies, and enterprises. Through a global platform, Kaleyra enables its customers to reach, engage and manage an integrated and multi-channel notification services such as messages, push notifications, emails, instant messaging and voice services. Our services help business connect and communicate with their customers increasing customer retention and satisfaction in an easy and effective manner.
+Kaleyra is a global communications solutions provider that offers an extensive range of telecommunication services for banks, retail and e-commerce companies, and enterprises. Through a global platform, Kaleyra enables its customers to reach, engage and manage an integrated and multi-channel notification services such as messages, push notifications, emails, instant messaging and voice services. Our services help businesses connect and communicate with their customers, increasing customer retention and satisfaction in an easy and effective manner.
 
 Our mission is to make customer communication between business and their customers uncomplicated by removing the technology barrier with our cutting edge communication platforms. 
 ## Getting Started
@@ -15,11 +15,11 @@ Our mission is to make customer communication between business and their custome
 - To use the library,you will need a Kaleyra account,valid sender ID and API key.
 - Sign up for a Kaleyra account by clicking [here](http://accounts.kaleyra.com/login?next=home)
 - Click on New Service and select Alert
-- Verify your mobile number and e-mail id
+- Verify your mobile number and email id
 - Visit [Alerts Kaleyra](https://alerts.kaleyra.com/)
-- Login using the credentials provided in the e-mail sent after signing up
+- Login using the credentials provided in the email sent after signing up
 - From the left hand menu, go to Developer->API keys and request for a new API key
-- API Key will be sent to your e-mail
+- API Key will be sent to your email
 - Apply for approval of your sender ID by sending a mail to support@kaleyra.com
 
 ### Getting the library on your system
