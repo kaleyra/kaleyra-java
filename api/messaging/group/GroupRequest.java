@@ -45,7 +45,7 @@ public class GroupRequest extends KRequest {
 
     /**
      * Method to return number
-     * @return
+     * @return String number
      */
     public String getNumber() {
         return this.number;
@@ -53,6 +53,7 @@ public class GroupRequest extends KRequest {
 
     /**
      * Method to return message
+     * @return String message
      */
     public String getMessage() {
         return this.message;

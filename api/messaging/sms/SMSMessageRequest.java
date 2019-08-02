@@ -55,7 +55,6 @@ public class SMSMessageRequest extends KRequest {
 
     /**
      * Method to return mobile number for validation
-     *
      * @return String number
      */
     public String getNumber() {
@@ -64,7 +63,6 @@ public class SMSMessageRequest extends KRequest {
 
     /**
      * Method to return message for validation
-     *
      * @return String message
      */
     public String getMessage() {
@@ -73,7 +71,6 @@ public class SMSMessageRequest extends KRequest {
 
     /**
      * This method enables you to send an SMS
-     *
      * @return SMSMessageResponse object smsMessageResponse
      */
     public SMSMessageResponse send() {
