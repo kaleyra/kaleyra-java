@@ -56,7 +56,7 @@ public class SMSMessageRequest extends KRequest {
     /**
      * Method to return mobile number for validation
      *
-     * @return long number
+     * @return String number
      */
     public String getNumber() {
         return this.number;
